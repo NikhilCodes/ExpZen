@@ -1,5 +1,6 @@
 package com.nikhilcodes.creditzen.model;
 
+import lombok.Data;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.persistence.Column;
@@ -7,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+@Data
 @Entity
 @Table(name = "user")
 public class User {
@@ -17,11 +19,19 @@ public class User {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "role")
+    private String roleType; // Has to be either "ADMIN" or "USER"
+
+    @Column(name = "enabled")
+    private int enabled;
+
     @Override
     public String toString() {
-        return "User{" +
-          "userId='" + userId + '\'' +
-          ", name='" + name + '\'' +
-          '}';
+        return "UserAuth{" +
+          "\n\tuserId='" + userId + '\'' +
+          ",\n\tname='" + name + '\'' +
+          ",\n\trole='" + roleType + '\'' +
+          ",\n\tenabled=" + enabled +
+          "\n}";
     }
 }

@@ -12,6 +12,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -54,7 +55,7 @@ public class AuthService {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));
         } catch (BadCredentialsException e) {
-            throw new Exception("Incorrect username or password!");
+            throw new BadCredentialsException("Incorrect username or password!");
         }
 
         final UserDetails userDetails = userService.loadUserByUsername(email);
@@ -68,6 +69,9 @@ public class AuthService {
         if (expiredAccessToken != null && jwtUtil.isTokenExpired(expiredAccessToken)) {
             email = jwtUtil.extractUserEmail(expiredAccessToken);
             final UserDetails userDetails = userService.loadUserByUsername(email);
+            if (userDetails == null) {
+                throw new UsernameNotFoundException(email);
+            }
             return jwtUtil.generateToken(userDetails);
         } else {
             return expiredAccessToken;

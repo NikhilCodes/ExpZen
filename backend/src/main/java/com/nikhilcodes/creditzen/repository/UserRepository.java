@@ -8,4 +8,5 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.Collection;
 
 public interface UserRepository extends JpaRepository<User, String> {
+    User findByUserId(String userId);
 }

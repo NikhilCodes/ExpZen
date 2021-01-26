@@ -1,0 +1,36 @@
+package com.nikhilcodes.creditzen.model;
+
+import lombok.Data;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Data
+@Entity
+@Table(name = "auth")
+public class UserAuth {
+    @Column(name = "passkey")
+    private String passkeyHashed;
+
+    @Column(name = "user_id")
+    private String userId;
+
+    @Id
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "refresh_token")
+    private String refreshToken;
+
+    @Override
+    public String toString() {
+        return "UserAuth{" +
+          "\n\tpasskeyHashed='" + passkeyHashed + '\'' +
+          ",\n\tuserId='" + userId + '\'' +
+          ",\n\temail='" + email + '\'' +
+          ",\n\trefreshToken='" + refreshToken + '\'' +
+          "\n}";
+    }
+}

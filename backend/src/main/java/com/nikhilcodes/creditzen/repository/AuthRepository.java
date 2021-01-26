@@ -1,27 +1,20 @@
 package com.nikhilcodes.creditzen.repository;
 
 import com.nikhilcodes.creditzen.model.User;
+import com.nikhilcodes.creditzen.model.UserAuth;
+import lombok.experimental.PackagePrivate;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
-import org.springframework.scheduling.annotation.Async;
-import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
-import java.util.concurrent.Future;
 
-public interface AuthRepository extends JpaRepository<User, String> {
-
-    @Query(value = "SELECT u FROM User u")
-    Collection<User> findAllUsers(Sort sort);
-
+public interface AuthRepository extends JpaRepository<UserAuth, String> {
     @Transactional
     @Modifying
     @Query(
@@ -33,7 +26,7 @@ public interface AuthRepository extends JpaRepository<User, String> {
     @Transactional
     @Modifying
     @Query(
-      value = "INSERT INTO user (user_id, name) VALUES (:userId, :name)",
+      value = "INSERT INTO user (user_id, name, role) VALUES (:userId, :name, 'USER')",
       nativeQuery = true
     )
     void createUserForReal(@Param("userId") String userId, @Param("name") String name);
@@ -47,6 +40,8 @@ public interface AuthRepository extends JpaRepository<User, String> {
         return userId;
     }
 
+    UserAuth findUserAuthByEmail(String email);
+
     //    @Query("SELECT user_id, name from user where name='Nikhil Nayak'")
-    List<User> findAllByName(String name);
+//    List<User> findAllByName(String name);
 }
