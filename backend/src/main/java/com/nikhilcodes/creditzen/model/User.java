@@ -1,5 +1,7 @@
 package com.nikhilcodes.creditzen.model;
 
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;

@@ -3,6 +3,7 @@ package com.nikhilcodes.creditzen.controller;
 import com.nikhilcodes.creditzen.constants.NumberConstants;
 import com.nikhilcodes.creditzen.constants.StringConstants;
 import com.nikhilcodes.creditzen.dto.AuthenticationDto.AuthenticationBody;
+import com.nikhilcodes.creditzen.dto.AuthenticationDto.UserRegBody;
 import com.nikhilcodes.creditzen.repository.AuthRepository;
 import com.nikhilcodes.creditzen.service.AuthService;
 import org.springframework.data.domain.Sort;
@@ -19,22 +20,30 @@ import java.util.Arrays;
 @RequestMapping("/auth")
 public class AuthController {
 
-    private final AuthRepository authRepository;
     private final AuthService authService;
 
-    public AuthController(AuthRepository authRepository, AuthService authService) {
-        this.authRepository = authRepository;
+    public AuthController(AuthService authService) {
         this.authService = authService;
     }
 
     @PostMapping()
     public void authenticate(@RequestBody AuthenticationBody requestBody, HttpServletResponse response) throws Exception {
+        System.out.println(requestBody.getEmail());
+        System.out.println(requestBody.getPassword());
         String jwt = authService.authenticate(requestBody.getEmail(), requestBody.getPassword());
         Cookie jwtAccessTokenCookie = new Cookie(StringConstants.JWT_COOKIE_NAME, jwt);
         jwtAccessTokenCookie.setMaxAge(NumberConstants.JWT_COOKIE_MAX_AGE);
         jwtAccessTokenCookie.setHttpOnly(true); // Makes it accessible by server only.
 
         response.addCookie(jwtAccessTokenCookie);
+    }
+
+    @PutMapping()
+    public void register(@RequestBody UserRegBody requestBody) {
+        System.out.println(requestBody.getName());
+        System.out.println(requestBody.getEmail());
+        System.out.println(requestBody.getPassword());
+        authService.createNewUser(requestBody.getEmail(), requestBody.getPassword(), requestBody.getName());
     }
 
     @PatchMapping()
@@ -57,13 +66,13 @@ public class AuthController {
         response.addCookie(jwtCookie);
     }
 
-    @GetMapping()
-    void getUsers() {
-        System.out.println(this.authRepository.findAllUsers(Sort.by(Sort.Direction.ASC, "name")));
-    }
-
-    @GetMapping(path = "nik")
-    void getNikhil() {
-        System.out.println(this.authRepository.findAllByName("Nikhil Nayak"));
-    }
+//    @GetMapping()
+//    void getUsers() {
+//        System.out.println(this.authRepository.findAllUsers(Sort.by(Sort.Direction.ASC, "name")));
+//    }
+//
+//    @GetMapping(path = "nik")
+//    void getNikhil() {
+//        System.out.println(this.authRepository.findAllByName("Nikhil Nayak"));
+//    }
 }

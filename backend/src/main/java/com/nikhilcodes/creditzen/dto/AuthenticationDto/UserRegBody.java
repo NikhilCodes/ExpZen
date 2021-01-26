@@ -1,13 +1,17 @@
 package com.nikhilcodes.creditzen.dto.AuthenticationDto;
 
-public class AuthenticationBody {
+public class UserRegBody {
     private String email;
     private String password;
+    private String name;
 
-    public AuthenticationBody() {}
-    public AuthenticationBody(String email, String password) {
+    public UserRegBody() {
+    }
+
+    public UserRegBody(String email, String password, String name) {
         this.email = email;
         this.password = password;
+        this.name = name;
     }
 
     public String getEmail() {
@@ -25,4 +29,8 @@ public class AuthenticationBody {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getName() { return name; }
+
+    public void setName(String name) { this.name = name; }
 }
