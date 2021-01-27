@@ -41,7 +41,7 @@ public class JwtFilter extends OncePerRequestFilter {
       FilterChain filterChain
     ) throws ServletException, IOException {
         Cookie jwtCookie = Arrays.stream(httpServletRequest.getCookies())
-          .filter(cookie -> cookie.getName().equals(StringConstants.JWT_COOKIE_NAME))
+          .filter(cookie -> cookie.getName().equals(StringConstants.JWT_AT_COOKIE_NAME))
           .findFirst()
           .orElse(null);
 

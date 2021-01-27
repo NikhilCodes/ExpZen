@@ -14,9 +14,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.preauth.PreAuthenticatedCredentialsNotFoundException;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.Cookie;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -46,39 +50,39 @@ public class AuthService {
     }
 
     public void createNewUser(String email, String password, String name) {
-        String passwordHashed = passwordEncoder.encode(password);
-
-        String userId = authRepository.createUser(email, passwordHashed, name);
+        String passwordHashed = this.passwordEncoder.encode(password);
+        String userId = this.authRepository.createUser(email, passwordHashed, name);
     }
 
-    public String authenticate(String email, String password) throws Exception {
+    public List<String> authenticate(String email, String password) throws Exception {
         try {
-            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));
+            this.authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));
         } catch (BadCredentialsException e) {
             throw new BadCredentialsException("Incorrect username or password!");
         }
 
-        final UserDetails userDetails = userService.loadUserByUsername(email);
+        final UserDetails userDetails = this.userService.loadUserByUsername(email);
 
-        return jwtUtil.generateToken(userDetails);
+        return Arrays.asList(jwtUtil.generateToken(userDetails), this.authRepository.getRefreshTokenByEmail(email));
     }
 
-    public String refreshAuthentication(String expiredAccessToken) {
+    public String refreshAuthentication(String expiredAccessToken, String refreshToken) {
         String email;
 
-        if (expiredAccessToken != null && jwtUtil.isTokenExpired(expiredAccessToken)) {
+        if (jwtUtil.isTokenExpired(expiredAccessToken)) {
             email = jwtUtil.extractUserEmail(expiredAccessToken);
-            final UserDetails userDetails = userService.loadUserByUsername(email);
+            final UserDetails userDetails = this.userService.loadUserByUsername(email);
             if (userDetails == null) {
                 throw new UsernameNotFoundException(email);
             }
+
+            if (!this.authRepository.getRefreshTokenByEmail(email).equals(refreshToken)) {
+                throw new PreAuthenticatedCredentialsNotFoundException("Refresh token mismatch!");
+            }
+
             return jwtUtil.generateToken(userDetails);
         } else {
             return expiredAccessToken;
         }
-    }
-
-    public String issueNewRefreshToken() {
-        return "abc";
     }
 }
