@@ -1,7 +1,6 @@
 package com.nikhilcodes.creditzen.util;
 
 import com.nikhilcodes.creditzen.constants.NumberConstants;
-import com.nikhilcodes.creditzen.constants.StringConstants;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;

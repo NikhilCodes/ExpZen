@@ -1,27 +1,21 @@
 package com.nikhilcodes.creditzen.service;
 
-import com.nikhilcodes.creditzen.dto.AuthenticationDto.JwtResponse;
 import com.nikhilcodes.creditzen.repository.AuthRepository;
 import com.nikhilcodes.creditzen.repository.UserRepository;
 import com.nikhilcodes.creditzen.util.Encoder;
 import com.nikhilcodes.creditzen.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.lang.Nullable;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedCredentialsNotFoundException;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.Cookie;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.UUID;
 
 @Service
 public class AuthService {

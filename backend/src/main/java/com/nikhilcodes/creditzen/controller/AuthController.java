@@ -4,9 +4,7 @@ import com.nikhilcodes.creditzen.constants.NumberConstants;
 import com.nikhilcodes.creditzen.constants.StringConstants;
 import com.nikhilcodes.creditzen.dto.AuthenticationDto.AuthenticationBody;
 import com.nikhilcodes.creditzen.dto.AuthenticationDto.UserRegBody;
-import com.nikhilcodes.creditzen.repository.AuthRepository;
 import com.nikhilcodes.creditzen.service.AuthService;
-import org.springframework.data.domain.Sort;
 import org.springframework.security.authentication.InsufficientAuthenticationException;
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedCredentialsNotFoundException;
 import org.springframework.web.bind.annotation.*;
@@ -32,14 +30,14 @@ public class AuthController {
     @PostMapping()
     public void authenticate(@RequestBody AuthenticationBody requestBody, HttpServletResponse response) throws Exception {
         List<String> jwtAtAndRt = authService.authenticate(requestBody.getEmail(), requestBody.getPassword());
-        String jwt = jwtAtAndRt.get(0);
-        String rt = jwtAtAndRt.get(1);
+        String jwtAccessToken = jwtAtAndRt.get(0);
+        String refreshToken = jwtAtAndRt.get(1);
 
-        Cookie jwtAccessTokenCookie = new Cookie(StringConstants.JWT_AT_COOKIE_NAME, jwt);
+        Cookie jwtAccessTokenCookie = new Cookie(StringConstants.JWT_AT_COOKIE_NAME, jwtAccessToken);
         jwtAccessTokenCookie.setMaxAge(NumberConstants.JWT_AT_COOKIE_MAX_AGE);
         jwtAccessTokenCookie.setHttpOnly(true); // Makes it accessible by server only.
 
-        Cookie refreshTokenCookie = new Cookie(StringConstants.RT_COOKIE_NAME, rt);
+        Cookie refreshTokenCookie = new Cookie(StringConstants.RT_COOKIE_NAME, refreshToken);
         refreshTokenCookie.setMaxAge(NumberConstants.RT_COOKIE_MAX_AGE);
         refreshTokenCookie.setHttpOnly(true); // Makes it accessible by server only.
 
@@ -80,14 +78,4 @@ public class AuthController {
 
         response.addCookie(jwtAtCookie);
     }
-
-//    @GetMapping()
-//    void getUsers() {
-//        System.out.println(this.authRepository.findAllUsers(Sort.by(Sort.Direction.ASC, "name")));
-//    }
-//
-//    @GetMapping(path = "nik")
-//    void getNikhil() {
-//        System.out.println(this.authRepository.findAllByName("Nikhil Nayak"));
-//    }
 }
