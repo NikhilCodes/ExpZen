@@ -32,13 +32,16 @@ public class UserService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         // Here we consider email as username!
-//        User customUser = new User("1928239@kiit.ac.in", new BCryptPasswordEncoder().encode("123456"), new ArrayList<>());
         UserAuth fetchedUserAuth = this.authRepository.findUserAuthByEmail(email);
         if (fetchedUserAuth == null) {
             return null;
         }
+
         User fetchedUser = this.userRepository.findByUserId(fetchedUserAuth.getUserId());
-        System.out.println(fetchedUser);
+        if (fetchedUser.getEnabled() != 1) {
+            return null;
+        }
+
         return new org.springframework.security.core.userdetails.User(
           fetchedUserAuth.getEmail(),
           fetchedUserAuth.getPasskeyHashed(),
