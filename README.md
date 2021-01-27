@@ -4,5 +4,5 @@
 
 ## Tech used:
 - Springboot [Backend]
-- React [Frontend]
+- Angular [Frontend]
 - Database [MySql]
