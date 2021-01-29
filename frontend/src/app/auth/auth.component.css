@@ -1,0 +1,21 @@
+#auth-root {
+  background: url("src/assets/auth-bg.jpg") no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#auth-container {
+  width: 320px;
+  height: 64vh;
+  padding: 40px 80px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 0 40px #000000aa;
+}
