@@ -1,29 +1,56 @@
 <div id="auth-root">
   <div id="auth-container">
-    <div style="text-align: left">
-      <input/>
-<!--      <ly-field fullWidth>-->
-<!--        <ly-label>Email Address</ly-label>-->
-<!--        <input lyNativeControl>-->
-<!--      </ly-field>-->
-
-<!--      <ly-field style="width: 100%">-->
-<!--        <ly-label>Secret Password</ly-label>-->
-<!--        <input-->
-<!--          lyNativeControl-->
-<!--          placeholder="********"-->
-<!--          [type]="hidePassword ? 'password' : 'text'"-->
-<!--        >-->
-<!--        <button-->
-<!--          ly-button-->
-<!--          appearance="icon"-->
-<!--          lySuffix-->
-<!--          (click)="hidePassword = !hidePassword"-->
-<!--        >-->
-<!--          <ly-icon>{{ hidePassword ? 'visibility' : 'visibility_off' }}</ly-icon>-->
-<!--        </button>-->
-<!--        &lt;!&ndash;          [color]="_field.errorState ? 'warn' : 'text'"&ndash;&gt;-->
-<!--      </ly-field>-->
+    <div style="align-self: flex-start;display: flex;align-items: center;justify-content: center">
+      <div style="width: 6px;height: 40px;background-color: darkorchid;transform: translate(-80px, -10px)"></div>
+      <h1>{{this.authType === 'REGISTER' ? 'Register' : 'Login'}}</h1>
+    </div>
+    <mat-form-field [@inOutAnimation] *ngIf="authType === 'REGISTER'" style="width: 100%" appearance="outline">
+      <mat-label>Your Name</mat-label>
+      <input
+        matInput
+        [formControl]="name"
+        type="text"
+        autocomplete="off"
+        placeholder="Somebody"
+      />
+    </mat-form-field>
+    <mat-form-field style="width: 100%" appearance="outline">
+      <mat-label>Email Address</mat-label>
+      <input
+        matInput
+        [formControl]="email"
+        type="email"
+        autocomplete="off"
+        placeholder="somebody@email.com"
+      />
+    </mat-form-field>
+    <mat-form-field style="width: 100%" appearance="outline">
+      <mat-label>Secret Password</mat-label>
+      <input
+        matInput
+        [formControl]="password"
+        autocomplete="off"
+        [type]="showPassword ? 'text' : 'password'"
+        placeholder="********"
+      />
+      <mat-icon matSuffix (click)="showPassword = !showPassword">
+        {{showPassword ? 'visibility_off' : 'visibility'}}
+      </mat-icon>
+      <mat-hint
+        *ngIf="password.value!==''">{{password.value.length < 8 ? 'Weak Password.' : 'Strong Enough!'}}</mat-hint>
+    </mat-form-field>
+    <button
+      color="primary"
+      mat-flat-button
+      style="width: 100px"
+    >
+      {{this.authType === 'REGISTER' ? 'Register' : 'Login'}}
+    </button>
+    <div style="width: 100%; display: flex; flex-direction: column; align-items: flex-start;margin-top: 50px">
+      <div>{{this.authType === 'REGISTER' ? 'Already one of ours? Login instead' : 'First time here? Join Us'}}</div>
+      <button mat-stroked-button color="primary" (click)="authType=authType === 'LOGIN' ? 'REGISTER' : 'LOGIN'">
+        {{this.authType === 'REGISTER' ? 'Login' : 'Register'}}
+      </button>
     </div>
   </div>
 </div>
