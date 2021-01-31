@@ -3,7 +3,9 @@ package com.nikhilcodes.creditzen.controller;
 import com.nikhilcodes.creditzen.constants.NumberConstants;
 import com.nikhilcodes.creditzen.constants.StringConstants;
 import com.nikhilcodes.creditzen.dto.AuthenticationDto.AuthenticationBody;
+import com.nikhilcodes.creditzen.dto.AuthenticationDto.UserAuthServiceResponse;
 import com.nikhilcodes.creditzen.dto.AuthenticationDto.UserRegBody;
+import com.nikhilcodes.creditzen.dto.AuthenticationDto.UserDataResponse;
 import com.nikhilcodes.creditzen.service.AuthService;
 import org.springframework.security.authentication.InsufficientAuthenticationException;
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedCredentialsNotFoundException;
@@ -16,7 +18,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-
+@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*", allowCredentials = "true")
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
@@ -28,10 +30,10 @@ public class AuthController {
     }
 
     @PostMapping()
-    public void authenticate(@RequestBody AuthenticationBody requestBody, HttpServletResponse response) throws Exception {
-        List<String> jwtAtAndRt = authService.authenticate(requestBody.getEmail(), requestBody.getPassword());
-        String jwtAccessToken = jwtAtAndRt.get(0);
-        String refreshToken = jwtAtAndRt.get(1);
+    public UserDataResponse authenticate(@RequestBody AuthenticationBody requestBody, HttpServletResponse response) throws Exception {
+        UserAuthServiceResponse userAuthResponse = authService.authenticate(requestBody.getEmail(), requestBody.getPassword());
+        String jwtAccessToken = userAuthResponse.getAccessToken();
+        String refreshToken = userAuthResponse.getRefreshToken();
 
         Cookie jwtAccessTokenCookie = new Cookie(StringConstants.JWT_AT_COOKIE_NAME, jwtAccessToken);
         jwtAccessTokenCookie.setMaxAge(NumberConstants.JWT_AT_COOKIE_MAX_AGE);
@@ -43,6 +45,12 @@ public class AuthController {
 
         response.addCookie(jwtAccessTokenCookie);
         response.addCookie(refreshTokenCookie);
+
+        return new UserDataResponse(
+          userAuthResponse.getName(),
+          userAuthResponse.getEmail(),
+          userAuthResponse.getUserId()
+        );
     }
 
     @PutMapping()

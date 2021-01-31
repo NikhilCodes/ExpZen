@@ -1,5 +1,7 @@
 package com.nikhilcodes.creditzen.service;
 
+import com.nikhilcodes.creditzen.dto.AuthenticationDto.UserAuthServiceResponse;
+import com.nikhilcodes.creditzen.model.User;
 import com.nikhilcodes.creditzen.repository.AuthRepository;
 import com.nikhilcodes.creditzen.repository.UserRepository;
 import com.nikhilcodes.creditzen.util.Encoder;
@@ -48,7 +50,7 @@ public class AuthService {
         String userId = this.authRepository.createUser(email, passwordHashed, name);
     }
 
-    public List<String> authenticate(String email, String password) throws Exception {
+    public UserAuthServiceResponse authenticate(String email, String password) throws Exception {
         try {
             this.authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));
         } catch (BadCredentialsException e) {
@@ -57,7 +59,15 @@ public class AuthService {
 
         final UserDetails userDetails = this.userService.loadUserByUsername(email);
 
-        return Arrays.asList(jwtUtil.generateToken(userDetails), this.authRepository.getRefreshTokenByEmail(email));
+        UserAuthServiceResponse authSvcResp = new UserAuthServiceResponse();
+        User user = this.userRepository.findUserByEmail(userDetails.getUsername());
+        authSvcResp.setEmail(userDetails.getUsername());
+        authSvcResp.setName(user.getName());
+        authSvcResp.setUserId(user.getUserId());
+        authSvcResp.setAccessToken(jwtUtil.generateToken(userDetails));
+        authSvcResp.setRefreshToken(this.authRepository.getRefreshTokenByEmail(email));
+
+        return authSvcResp;
     }
 
     public String refreshAuthentication(String expiredAccessToken, String refreshToken) {
