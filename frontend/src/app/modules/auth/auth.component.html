@@ -43,6 +43,7 @@
       color="primary"
       mat-flat-button
       style="width: 100px"
+      (click)="onSubmit()"
     >
       {{this.authType === 'REGISTER' ? 'Register' : 'Login'}}
     </button>

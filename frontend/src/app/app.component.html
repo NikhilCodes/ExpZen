@@ -1,1 +1,4 @@
-<router-outlet></router-outlet>
+<div *ngIf="authStatus==='LOADING'" style="width: 100%;height: 100%;display: flex;justify-content: center;align-items: center">
+  <mat-spinner color="primary" diameter="50"></mat-spinner>
+</div>
+<router-outlet *ngIf="authStatus!=='LOADING'"></router-outlet>

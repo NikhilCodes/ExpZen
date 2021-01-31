@@ -2,17 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b7628681-e981-497e-8b45-0da485a9227f" name="Default Changelist" comment="Added Login Bg">
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/creditzen/dto/AuthenticationDto/UserAuthServiceResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/creditzen/dto/AuthenticationDto/UserDataResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/creditzen/dto/ServerTestResponseDto/ServerTestResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/shared/types/auth.types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/creditzen/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/creditzen/configuration/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/creditzen/controller/ApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/creditzen/controller/ApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/creditzen/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/creditzen/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/creditzen/filter/JwtFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/creditzen/filter/JwtFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/creditzen/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/creditzen/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/creditzen/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/creditzen/service/AuthService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/auth/auth.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/auth/auth.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/auth/auth.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/auth/auth.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/auth/auth.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/auth/auth.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/auth/auth.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/auth/auth.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/home.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/home/home.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/home/home.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/home.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/home/home.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/home/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/service/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/service/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/auth/auth.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/auth/auth.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/auth/auth.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/auth/auth.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/home/home.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/environments/environment.prod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/environments/environment.prod.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/environments/environment.ts" afterDir="false" />
     </list>
@@ -20,6 +28,13 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -48,6 +63,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/shared/interface" />
       <recent name="$PROJECT_DIR$/src/app/modules" />
     </key>
   </component>
@@ -76,7 +92,7 @@
       <workItem from="1611894623220" duration="322000" />
       <workItem from="1611922318967" duration="10000" />
       <workItem from="1612015086504" duration="11367000" />
-      <workItem from="1612076038557" duration="5034000" />
+      <workItem from="1612076038557" duration="25399000" />
     </task>
     <task id="LOCAL-00001" summary="Added Login Bg">
       <created>1611894715944</created>

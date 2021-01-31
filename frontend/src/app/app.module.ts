@@ -13,6 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatInputModule,
     MatButtonModule,
     MatIconModule,
+    MatProgressSpinnerModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
