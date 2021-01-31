@@ -3,14 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="b7628681-e981-497e-8b45-0da485a9227f" name="Default Changelist" comment="Added Login Bg">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/auth/auth.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/auth.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/auth/auth.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/auth.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/auth/auth.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/auth.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/auth.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/auth/auth.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/auth.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/auth/auth.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/auth.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/auth/auth.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/auth.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/auth/auth.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/home.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/home/home.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/home/home.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/home.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/home/home.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/home/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/environments/environment.prod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/environments/environment.prod.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/environments/environment.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +36,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/angular-folder-structure" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -41,6 +45,11 @@
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/modules" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
@@ -66,7 +75,8 @@
       <workItem from="1611738121797" duration="352000" />
       <workItem from="1611894623220" duration="322000" />
       <workItem from="1611922318967" duration="10000" />
-      <workItem from="1612015086504" duration="11162000" />
+      <workItem from="1612015086504" duration="11367000" />
+      <workItem from="1612076038557" duration="5034000" />
     </task>
     <task id="LOCAL-00001" summary="Added Login Bg">
       <created>1611894715944</created>
