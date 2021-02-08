@@ -7,21 +7,15 @@ import com.nikhilcodes.creditzen.repository.UserRepository;
 import com.nikhilcodes.creditzen.util.Encoder;
 import com.nikhilcodes.creditzen.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedCredentialsNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
-import java.util.List;
-
 @Service
 public class AuthService {
-    private final AuthenticationManager authenticationManager;
     private final UserService userService;
     private final JwtUtil jwtUtil;
     private final PasswordEncoder passwordEncoder;
@@ -30,14 +24,12 @@ public class AuthService {
 
     @Autowired
     public AuthService(
-      AuthenticationManager authenticationManager,
       AuthRepository authRepository,
       UserRepository userRepository,
       UserService userService,
       JwtUtil jwtUtil,
       Encoder encoder
     ) {
-        this.authenticationManager = authenticationManager;
         this.authRepository = authRepository;
         this.userRepository = userRepository;
         this.userService = userService;
@@ -50,14 +42,13 @@ public class AuthService {
         String userId = this.authRepository.createUser(email, passwordHashed, name);
     }
 
-    public UserAuthServiceResponse authenticate(String email, String password) throws Exception {
-        try {
-            this.authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));
-        } catch (BadCredentialsException e) {
-            throw new BadCredentialsException("Incorrect username or password!");
+    public UserAuthServiceResponse authenticate(String email, String password) {
+
+        if (!this.passwordEncoder.matches(password, this.authRepository.getHashedPasswordByEmail(email))) {
+            throw new BadCredentialsException("INVALID_CREDENTIAL_EXCEPTION");
         }
 
-        final UserDetails userDetails = this.userService.loadUserByUsername(email);
+        final UserDetails userDetails = this.userService.loadUserByEmail(email);
 
         UserAuthServiceResponse authSvcResp = new UserAuthServiceResponse();
         User user = this.userRepository.findUserByEmail(userDetails.getUsername());
@@ -75,7 +66,7 @@ public class AuthService {
 
         if (jwtUtil.isTokenExpired(expiredAccessToken)) {
             email = jwtUtil.extractUserEmail(expiredAccessToken);
-            final UserDetails userDetails = this.userService.loadUserByUsername(email);
+            final UserDetails userDetails = this.userService.loadUserByEmail(email);
             if (userDetails == null) {
                 throw new UsernameNotFoundException(email);
             }

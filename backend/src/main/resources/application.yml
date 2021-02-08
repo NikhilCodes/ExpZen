@@ -4,6 +4,11 @@ server:
     context-path: /api/
 
 spring:
+  security:
+    user:
+      name: doesntmatter
+      password: doesntmatter
+
   flyway:
     baseline-on-migrate: true
 

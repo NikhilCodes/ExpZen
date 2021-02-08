@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
+import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry, tap } from 'rxjs/operators';
@@ -9,10 +9,11 @@ export class JwtInterceptor implements HttpInterceptor {
   constructor(private authService: AuthService) {}
 
   private handleJwtError(err: HttpErrorResponse, req?: HttpRequest<any>, next?: HttpHandler): Observable<any> {
-    if (err.status === 401 && err.error.message === 'INVALID_JWT_TOKEN_EXCEPTION') {
+    if (err.status === 401 && err.error.message === 'EXPIRED_JWT_TOKEN_EXCEPTION') {
       this.authService.refreshAccessToken();
       return next.handle(req);
     } else {
+      this.authService.logout();
       return throwError(err);
     }
   }

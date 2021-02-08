@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 import java.util.Collections;
 
 @Service
-public class UserService implements UserDetailsService {
+public class UserService {
 
     private final AuthRepository authRepository;
     private final UserRepository userRepository;
@@ -27,8 +27,7 @@ public class UserService implements UserDetailsService {
         this.userRepository = userRepository;
     }
 
-    @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+    public UserDetails loadUserByEmail(String email) throws UsernameNotFoundException {
         // Here we consider email as username!
         UserAuth fetchedUserAuth = this.authRepository.findUserAuthByEmail(email);
         if (fetchedUserAuth == null) {

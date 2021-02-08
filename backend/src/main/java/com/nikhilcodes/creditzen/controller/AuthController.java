@@ -9,6 +9,7 @@ import com.nikhilcodes.creditzen.dto.AuthenticationDto.UserDataResponse;
 import com.nikhilcodes.creditzen.service.AuthService;
 import com.nikhilcodes.creditzen.service.UserService;
 import com.nikhilcodes.creditzen.util.JwtUtil;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.InsufficientAuthenticationException;
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedCredentialsNotFoundException;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +19,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*", allowCredentials = "true")
 @RestController
@@ -37,28 +37,34 @@ public class AuthController {
 
     @PostMapping()
     public UserDataResponse authenticate(@RequestBody AuthenticationBody requestBody, HttpServletResponse response) throws Exception {
-        UserAuthServiceResponse userAuthResponse = authService.authenticate(requestBody.getEmail(), requestBody.getPassword());
-        String jwtAccessToken = userAuthResponse.getAccessToken();
-        String refreshToken = userAuthResponse.getRefreshToken();
+        try {
+            UserAuthServiceResponse userAuthResponse = authService.authenticate(requestBody.getEmail(), requestBody.getPassword());
 
-        Cookie jwtAccessTokenCookie = new Cookie(StringConstants.JWT_AT_COOKIE_NAME, jwtAccessToken);
-        jwtAccessTokenCookie.setMaxAge(NumberConstants.JWT_AT_COOKIE_MAX_AGE);
-        jwtAccessTokenCookie.setPath("/");
-        jwtAccessTokenCookie.setHttpOnly(true); // Makes it accessible by server only.
+            String jwtAccessToken = userAuthResponse.getAccessToken();
+            String refreshToken = userAuthResponse.getRefreshToken();
 
-        Cookie refreshTokenCookie = new Cookie(StringConstants.RT_COOKIE_NAME, refreshToken);
-        refreshTokenCookie.setMaxAge(NumberConstants.RT_COOKIE_MAX_AGE);
-        refreshTokenCookie.setPath("/");
-        refreshTokenCookie.setHttpOnly(true); // Makes it accessible by server only.
+            Cookie jwtAccessTokenCookie = new Cookie(StringConstants.JWT_AT_COOKIE_NAME, jwtAccessToken);
+            jwtAccessTokenCookie.setMaxAge(NumberConstants.JWT_AT_COOKIE_MAX_AGE);
+//        jwtAccessTokenCookie.setPath("/");
+            jwtAccessTokenCookie.setHttpOnly(true); // Makes it accessible by server only.
 
-        response.addCookie(jwtAccessTokenCookie);
-        response.addCookie(refreshTokenCookie);
+            Cookie refreshTokenCookie = new Cookie(StringConstants.RT_COOKIE_NAME, refreshToken);
+            refreshTokenCookie.setMaxAge(NumberConstants.RT_COOKIE_MAX_AGE);
+//        refreshTokenCookie.setPath("/");
+            refreshTokenCookie.setHttpOnly(true); // Makes it accessible by server only.
 
-        return new UserDataResponse(
-          userAuthResponse.getName(),
-          userAuthResponse.getEmail(),
-          userAuthResponse.getUserId()
-        );
+            response.addCookie(jwtAccessTokenCookie);
+            response.addCookie(refreshTokenCookie);
+
+            return new UserDataResponse(
+              userAuthResponse.getName(),
+              userAuthResponse.getEmail(),
+              userAuthResponse.getUserId()
+            );
+        } catch (BadCredentialsException exception) {
+            response.sendError(403, exception.getMessage());
+            return new UserDataResponse(null, null, null);
+        }
     }
 
     @PutMapping()
@@ -88,7 +94,7 @@ public class AuthController {
     }
 
     @PatchMapping()
-    public void setNewAccessToken(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void setNewAccessToken(HttpServletRequest request, HttpServletResponse response) {
         Cookie[] cookies = request.getCookies();
         if (cookies == null) {
             throw new InsufficientAuthenticationException("You need to authenticate first!");

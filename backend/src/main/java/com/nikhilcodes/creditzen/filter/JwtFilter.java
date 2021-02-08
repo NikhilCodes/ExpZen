@@ -1,18 +1,11 @@
 package com.nikhilcodes.creditzen.filter;
 
-import com.google.gson.Gson;
 import com.nikhilcodes.creditzen.constants.StringConstants;
-import com.nikhilcodes.creditzen.dto.AuthenticationDto.UserDataResponse;
-import com.nikhilcodes.creditzen.exceptions.InvalidJwtException;
 import com.nikhilcodes.creditzen.service.UserService;
 import com.nikhilcodes.creditzen.util.JwtUtil;
 import io.jsonwebtoken.ExpiredJwtException;
-import io.jsonwebtoken.JwtException;
+import io.jsonwebtoken.SignatureException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -28,12 +21,10 @@ import java.util.Arrays;
 @Component
 public class JwtFilter extends OncePerRequestFilter {
 
-    final private UserService userService;
     final private JwtUtil jwtUtil;
 
     @Autowired
-    JwtFilter(UserService userService, JwtUtil jwtUtil) {
-        this.userService = userService;
+    JwtFilter(JwtUtil jwtUtil) {
         this.jwtUtil = jwtUtil;
     }
 
@@ -59,28 +50,17 @@ public class JwtFilter extends OncePerRequestFilter {
             if (jwtCookie != null) {
                 jwt = jwtCookie.getValue();
                 email = jwtUtil.extractUserEmail(jwt);
+            } else {
+                httpServletResponse.sendError(401, "User not authenticated!");
             }
 
-            if (email != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-                UserDetails userDetails = this.userService.loadUserByUsername(email);
-                if (jwtUtil.validateToken(jwt, userDetails)) {
-                    UsernamePasswordAuthenticationToken emailPasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(
-                      userDetails, null, userDetails.getAuthorities()
-                    );
-
-                    emailPasswordAuthenticationToken.setDetails(
-                      new WebAuthenticationDetailsSource().
-                        buildDetails(httpServletRequest)
-                    );
-
-                    SecurityContextHolder.getContext().setAuthentication(emailPasswordAuthenticationToken);
-                } else {
-                    httpServletResponse.sendError(401, "INVALID_JWT_TOKEN_EXCEPTION");
-                    return;
+            if (email != null) {
+                if (!jwtUtil.validateToken(jwt)) {
+                    httpServletResponse.sendError(401, "EXPIRED_JWT_TOKEN_EXCEPTION");
                 }
             }
-        } catch (ExpiredJwtException exception) {
-            System.out.println(exception.getMessage());
+        } catch (SignatureException exception) {
+            httpServletResponse.sendError(403, exception.getMessage());
         }
         filterChain.doFilter(httpServletRequest, httpServletResponse);
     }

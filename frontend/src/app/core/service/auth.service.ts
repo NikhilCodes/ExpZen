@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { User } from '../../shared/interface/user.interface';
 import { environment } from '../../../environments/environment';
 import { AuthTypes } from '../../shared/types/auth.types';
 import { LoginResponse } from '../../shared/interface/auth.interface';
 import { Router } from '@angular/router';
-import { tap } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -51,15 +51,22 @@ export class AuthService {
       .subscribe();
   }
 
-  public loginWithEmailAndPassword(email, password): void {
-    this.http.post(this.authUrl, { email, password }, {
+  public loginWithEmailAndPassword(email, password): Observable<LoginResponse> {
+    return this.http.post(this.authUrl, { email, password }, {
       withCredentials: true,
-    }).subscribe((value: LoginResponse) => {
-      this.userSubject.next(value);
-      if (value.userId) {
-        this.authStatusSubject.next(AuthTypes.LOGGED_IN);
-        this.router.navigate(['/']);
-      }
-    });
+    }).pipe(
+      tap((value: LoginResponse) => {
+        this.userSubject.next(value);
+        if (value.userId) {
+          this.authStatusSubject.next(AuthTypes.LOGGED_IN);
+          this.router.navigate(['/']);
+        }
+      }),
+    );
+  }
+
+  public logout(): void {
+    this.authStatusSubject.next(AuthTypes.LOGGED_OUT);
+    this.router.navigate(['login']);
   }
 }

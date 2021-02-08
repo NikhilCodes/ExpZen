@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { AuthService } from '../../core/service/auth.service';
+import { catchError } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-auth',
@@ -39,7 +42,7 @@ export class AuthComponent implements OnInit {
 
   authType: 'REGISTER' | 'LOGIN' = 'LOGIN';
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     // alert(this.authService.test());
@@ -54,7 +57,17 @@ export class AuthComponent implements OnInit {
   }
 
   onLogin(): void {
-    this.authService.loginWithEmailAndPassword(this.email.value, this.password.value);
+    this.authService
+      .loginWithEmailAndPassword(this.email.value, this.password.value)
+      .pipe(
+        catchError((err) => {
+          if (err.error.message === 'INVALID_CREDENTIAL_EXCEPTION') {
+            this.snackBar.open('Invalid Email or Password!', '', { duration: 2000 });
+          }
+
+          return throwError(err);
+        }),
+      ).subscribe();
   }
 
   onRegister(): void {
