@@ -1,9 +1,13 @@
 package com.nikhilcodes.creditzen.filter;
 
+import com.google.gson.Gson;
 import com.nikhilcodes.creditzen.constants.StringConstants;
+import com.nikhilcodes.creditzen.dto.AuthenticationDto.UserDataResponse;
+import com.nikhilcodes.creditzen.exceptions.InvalidJwtException;
 import com.nikhilcodes.creditzen.service.UserService;
 import com.nikhilcodes.creditzen.util.JwtUtil;
 import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.JwtException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -18,6 +22,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Arrays;
 
 @Component
@@ -39,7 +44,7 @@ public class JwtFilter extends OncePerRequestFilter {
       FilterChain filterChain
     ) throws ServletException, IOException {
         Cookie[] cookies = httpServletRequest.getCookies();
-        if(cookies.length == 0) {
+        if(cookies == null) {
             cookies = new Cookie[]{};
         }
         Cookie jwtCookie = Arrays.stream(cookies)
@@ -69,6 +74,9 @@ public class JwtFilter extends OncePerRequestFilter {
                     );
 
                     SecurityContextHolder.getContext().setAuthentication(emailPasswordAuthenticationToken);
+                } else {
+                    httpServletResponse.sendError(401, "INVALID_JWT_TOKEN_EXCEPTION");
+                    return;
                 }
             }
         } catch (ExpiredJwtException exception) {
@@ -80,6 +88,6 @@ public class JwtFilter extends OncePerRequestFilter {
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
         String path = request.getRequestURI();
-        return path.startsWith("/api/auth");
+        return path.equals("/api/auth");
     }
 }

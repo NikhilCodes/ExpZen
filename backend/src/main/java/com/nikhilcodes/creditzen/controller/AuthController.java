@@ -7,6 +7,8 @@ import com.nikhilcodes.creditzen.dto.AuthenticationDto.UserAuthServiceResponse;
 import com.nikhilcodes.creditzen.dto.AuthenticationDto.UserRegBody;
 import com.nikhilcodes.creditzen.dto.AuthenticationDto.UserDataResponse;
 import com.nikhilcodes.creditzen.service.AuthService;
+import com.nikhilcodes.creditzen.service.UserService;
+import com.nikhilcodes.creditzen.util.JwtUtil;
 import org.springframework.security.authentication.InsufficientAuthenticationException;
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedCredentialsNotFoundException;
 import org.springframework.web.bind.annotation.*;
@@ -24,9 +26,13 @@ import java.util.List;
 public class AuthController {
 
     private final AuthService authService;
+    private final UserService userService;
+    private final JwtUtil jwtUtil;
 
-    public AuthController(AuthService authService) {
+    public AuthController(AuthService authService, UserService userService, JwtUtil jwtUtil) {
         this.authService = authService;
+        this.userService = userService;
+        this.jwtUtil = jwtUtil;
     }
 
     @PostMapping()
@@ -37,10 +43,12 @@ public class AuthController {
 
         Cookie jwtAccessTokenCookie = new Cookie(StringConstants.JWT_AT_COOKIE_NAME, jwtAccessToken);
         jwtAccessTokenCookie.setMaxAge(NumberConstants.JWT_AT_COOKIE_MAX_AGE);
+        jwtAccessTokenCookie.setPath("/");
         jwtAccessTokenCookie.setHttpOnly(true); // Makes it accessible by server only.
 
         Cookie refreshTokenCookie = new Cookie(StringConstants.RT_COOKIE_NAME, refreshToken);
         refreshTokenCookie.setMaxAge(NumberConstants.RT_COOKIE_MAX_AGE);
+        refreshTokenCookie.setPath("/");
         refreshTokenCookie.setHttpOnly(true); // Makes it accessible by server only.
 
         response.addCookie(jwtAccessTokenCookie);
@@ -56,6 +64,27 @@ public class AuthController {
     @PutMapping()
     public void register(@RequestBody UserRegBody requestBody) {
         authService.createNewUser(requestBody.getEmail(), requestBody.getPassword(), requestBody.getName());
+    }
+
+    @PostMapping("auto")
+    public UserDataResponse autoAuthenticate(HttpServletRequest httpServletRequest) {
+        Cookie[] cookies = httpServletRequest.getCookies();
+        if (cookies == null) {
+            cookies = new Cookie[]{};
+        }
+        Cookie jwtCookie = Arrays.stream(cookies)
+          .filter(cookie -> cookie.getName().equals(StringConstants.JWT_AT_COOKIE_NAME))
+          .findFirst()
+          .orElse(null);
+
+        if (jwtCookie == null) {
+            return new UserDataResponse(null, null, null);
+        }
+
+        String jwt = jwtCookie.getValue();
+        String email = jwtUtil.extractUserEmail(jwt);
+
+        return userService.getUserDataByEmail(email);
     }
 
     @PatchMapping()

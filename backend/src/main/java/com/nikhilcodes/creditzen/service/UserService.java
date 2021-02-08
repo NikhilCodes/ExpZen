@@ -1,5 +1,6 @@
 package com.nikhilcodes.creditzen.service;
 
+import com.nikhilcodes.creditzen.dto.AuthenticationDto.UserDataResponse;
 import com.nikhilcodes.creditzen.model.User;
 import com.nikhilcodes.creditzen.model.UserAuth;
 import com.nikhilcodes.creditzen.repository.AuthRepository;
@@ -43,6 +44,15 @@ public class UserService implements UserDetailsService {
           fetchedUserAuth.getEmail(),
           fetchedUserAuth.getPasskeyHashed(),
           Collections.singletonList(new SimpleGrantedAuthority(fetchedUser.getRoleType()))
+        );
+    }
+
+    public UserDataResponse getUserDataByEmail(String email) {
+        User user = userRepository.findUserByEmail(email);
+        return new UserDataResponse(
+          user.getName(),
+          email,
+          user.getUserId()
         );
     }
 }
