@@ -2,17 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b7628681-e981-497e-8b45-0da485a9227f" name="Default Changelist" comment="Added Login Bg">
+      <change afterPath="$PROJECT_DIR$/../backend/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/resources/application-dev.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/creditzen/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/creditzen/configuration/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/creditzen/exceptions/InvalidJwtException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/creditzen/filter/JwtFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/creditzen/filter/JwtFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/creditzen/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/creditzen/service/AuthService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/creditzen/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/creditzen/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/creditzen/util/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/creditzen/util/JwtUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/interceptor/jwt.interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/interceptor/jwt.interceptor.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/service/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/service/auth.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/modules/auth/auth.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/auth/auth.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +85,10 @@
       <workItem from="1612718601794" duration="953000" />
       <workItem from="1612719627159" duration="5690000" />
       <workItem from="1612777675921" duration="7919000" />
-      <workItem from="1612796312697" duration="4476000" />
+      <workItem from="1612796312697" duration="4648000" />
+      <workItem from="1612853484306" duration="819000" />
+      <workItem from="1612891078394" duration="27000" />
+      <workItem from="1613214446003" duration="1013000" />
     </task>
     <task id="LOCAL-00001" summary="Added Login Bg">
       <created>1611894715944</created>

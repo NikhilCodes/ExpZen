@@ -1,0 +1,33 @@
+version: "3.8"
+services:
+  server:
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    restart: always
+    depends_on:
+      - db
+    networks:
+      - creditzen_backend
+
+  db:
+    image: hypriot/rpi-mysql
+    ports:
+      - "3306:3306"
+    restart: always
+    environment: 
+      MYSQL_DATABASE: creditzendb
+      MYSQL_USER: nikhilcodes
+      MYSQL_PASSWORD: shield3120
+      MYSQL_ROOT_PASSWORD: root
+    volumes: 
+      - db-data:/var/lib/mysql
+    networks:
+      - creditzen_backend
+volumes:
+  db-data:
+
+networks: 
+  creditzen_backend:

@@ -34,7 +34,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     ),
   ],
 })
-export class AuthComponent implements OnInit {
+export class AuthComponent {
   name = new FormControl('Nikhil Nayak');
   email = new FormControl('nikhil.nixel@gmail.com');
   password = new FormControl('123456');
@@ -43,10 +43,6 @@ export class AuthComponent implements OnInit {
   authType: 'REGISTER' | 'LOGIN' = 'LOGIN';
 
   constructor(private authService: AuthService, private snackBar: MatSnackBar) { }
-
-  ngOnInit(): void {
-    // alert(this.authService.test());
-  }
 
   onSubmit(): void {
     if (this.authType === 'LOGIN') {
