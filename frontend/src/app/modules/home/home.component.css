@@ -1,0 +1,32 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20%;
+  overflow-y: scroll;
+  height: 100%;
+}
+
+.tile-large {
+  font-family: Quicksand, sans-serif !important;
+  box-shadow: 0 0 30px #d2d2d2;
+  padding: 40px;
+  margin: 50px 50px 0;
+  width: 100%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.grey-text {
+  color: grey;
+}
+
+.price-text {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.price-text::before {
+  content: "₹";
+}

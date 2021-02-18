@@ -1,3 +1,55 @@
-<div>
-  <p>home works!</p>
+<div class="root">
+  <div class="tile-large">
+    <h1 style="font-weight: 600;margin-bottom: 0">Dashboard</h1>
+    <small class="grey-text">Check all your monthly financial info</small>
+    <div
+      style="display: flex;flex-direction: row; width: 100%;height: 100%;justify-content: space-evenly;align-items: center;margin-top: 50px">
+      <div>
+        <img src="assets/income-ico.png" height="60px" width="60px" />
+        <div><strong class="grey-text">Balance</strong></div>
+        <div class="price-text">{{this.getNumberAsPrice(this.income)}}</div>
+      </div>
+      <div>
+        <img src="assets/expense-ico.png" height="60px" width="60px" />
+        <div><strong class="grey-text">Expense</strong></div>
+        <div class="price-text">{{this.getNumberAsPrice(this.expense)}}</div>
+      </div>
+      <div>
+        <img src="assets/due-ico.png" height="60px" width="60px" />
+        <div><strong class="grey-text">Due</strong></div>
+        <div class="price-text">{{this.getNumberAsPrice(this.due)}}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tile-large" style="margin-bottom: 50px;">
+    <h2 style="font-weight: 600;margin-bottom: 0">Recent Transactions</h2>
+    <div>
+      <table mat-table style="width: 100%" [dataSource]="dataSource">
+        <ng-container matColumnDef="createdOn">
+          <th mat-header-cell *matHeaderCellDef>Date</th>
+          <td mat-cell *matCellDef="let element">{{element.createdOn.toLocaleDateString("en-IN")}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="value">
+          <th mat-header-cell *matHeaderCellDef>Amount</th>
+          <td mat-cell *matCellDef="let element">{{element.value}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="type">
+          <th mat-header-cell *matHeaderCellDef>Category</th>
+          <td mat-cell *matCellDef="let element">{{element.type}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef>Description</th>
+          <td mat-cell *matCellDef="let element">{{element.description}}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+  </div>
 </div>
