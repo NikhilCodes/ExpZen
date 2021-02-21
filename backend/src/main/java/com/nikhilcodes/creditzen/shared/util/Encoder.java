@@ -1,4 +1,4 @@
-package com.nikhilcodes.creditzen.util;
+package com.nikhilcodes.creditzen.shared.util;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

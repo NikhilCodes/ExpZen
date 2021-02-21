@@ -1,6 +1,6 @@
 package com.nikhilcodes.creditzen.controller;
 
-import com.nikhilcodes.creditzen.dto.ServerTestResponseDto.ServerTestResponse;
+import com.nikhilcodes.creditzen.shared.dto.ServerTestResponse;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

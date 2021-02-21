@@ -1,4 +1,4 @@
-package com.nikhilcodes.creditzen.dto.ServerTestResponseDto;
+package com.nikhilcodes.creditzen.shared.dto;
 
 import lombok.Data;
 

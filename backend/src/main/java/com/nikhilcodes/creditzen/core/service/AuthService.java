@@ -1,11 +1,11 @@
-package com.nikhilcodes.creditzen.service;
+package com.nikhilcodes.creditzen.core.service;
 
-import com.nikhilcodes.creditzen.dto.AuthenticationDto.UserAuthServiceResponse;
+import com.nikhilcodes.creditzen.shared.dto.AuthenticationDto.UserAuthServiceResponse;
 import com.nikhilcodes.creditzen.model.User;
-import com.nikhilcodes.creditzen.repository.AuthRepository;
-import com.nikhilcodes.creditzen.repository.UserRepository;
-import com.nikhilcodes.creditzen.util.Encoder;
-import com.nikhilcodes.creditzen.util.JwtUtil;
+import com.nikhilcodes.creditzen.core.repository.AuthRepository;
+import com.nikhilcodes.creditzen.core.repository.UserRepository;
+import com.nikhilcodes.creditzen.shared.util.Encoder;
+import com.nikhilcodes.creditzen.shared.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UserDetails;

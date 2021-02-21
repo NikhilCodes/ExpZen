@@ -1,4 +1,4 @@
-package com.nikhilcodes.creditzen.repository;
+package com.nikhilcodes.creditzen.core.repository;
 
 import com.nikhilcodes.creditzen.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;

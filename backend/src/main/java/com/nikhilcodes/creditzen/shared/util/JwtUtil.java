@@ -1,4 +1,4 @@
-package com.nikhilcodes.creditzen.util;
+package com.nikhilcodes.creditzen.shared.util;
 
 import com.nikhilcodes.creditzen.constants.NumberConstants;
 import io.jsonwebtoken.Claims;

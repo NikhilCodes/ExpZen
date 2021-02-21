@@ -2,13 +2,13 @@ package com.nikhilcodes.creditzen.controller;
 
 import com.nikhilcodes.creditzen.constants.NumberConstants;
 import com.nikhilcodes.creditzen.constants.StringConstants;
-import com.nikhilcodes.creditzen.dto.AuthenticationDto.AuthenticationBody;
-import com.nikhilcodes.creditzen.dto.AuthenticationDto.UserAuthServiceResponse;
-import com.nikhilcodes.creditzen.dto.AuthenticationDto.UserRegBody;
-import com.nikhilcodes.creditzen.dto.AuthenticationDto.UserDataResponse;
-import com.nikhilcodes.creditzen.service.AuthService;
-import com.nikhilcodes.creditzen.service.UserService;
-import com.nikhilcodes.creditzen.util.JwtUtil;
+import com.nikhilcodes.creditzen.shared.dto.AuthenticationDto.AuthenticationBody;
+import com.nikhilcodes.creditzen.shared.dto.AuthenticationDto.UserAuthServiceResponse;
+import com.nikhilcodes.creditzen.shared.dto.AuthenticationDto.UserRegBody;
+import com.nikhilcodes.creditzen.shared.dto.AuthenticationDto.UserDataResponse;
+import com.nikhilcodes.creditzen.core.service.AuthService;
+import com.nikhilcodes.creditzen.core.service.UserService;
+import com.nikhilcodes.creditzen.shared.util.JwtUtil;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.InsufficientAuthenticationException;
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedCredentialsNotFoundException;
@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.Arrays;
 
 @CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*", allowCredentials = "true")

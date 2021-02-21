@@ -1,9 +1,7 @@
-package com.nikhilcodes.creditzen.filter;
+package com.nikhilcodes.creditzen.core.filter;
 
 import com.nikhilcodes.creditzen.constants.StringConstants;
-import com.nikhilcodes.creditzen.service.UserService;
-import com.nikhilcodes.creditzen.util.JwtUtil;
-import io.jsonwebtoken.ExpiredJwtException;
+import com.nikhilcodes.creditzen.shared.util.JwtUtil;
 import io.jsonwebtoken.SignatureException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -15,7 +13,6 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Arrays;
 
 @Component
@@ -57,10 +54,12 @@ public class JwtFilter extends OncePerRequestFilter {
             if (email != null) {
                 if (!jwtUtil.validateToken(jwt)) {
                     httpServletResponse.sendError(401, "EXPIRED_JWT_TOKEN_EXCEPTION");
+                    return;
                 }
             }
         } catch (SignatureException exception) {
             httpServletResponse.sendError(403, exception.getMessage());
+            return;
         }
         filterChain.doFilter(httpServletRequest, httpServletResponse);
     }
@@ -68,6 +67,6 @@ public class JwtFilter extends OncePerRequestFilter {
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
         String path = request.getRequestURI();
-        return path.equals("/api/auth");
+        return path.equals("/api/auth") || path.equals("/api/auth/");
     }
 }

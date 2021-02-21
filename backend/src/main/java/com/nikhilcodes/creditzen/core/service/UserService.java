@@ -1,15 +1,14 @@
-package com.nikhilcodes.creditzen.service;
+package com.nikhilcodes.creditzen.core.service;
 
-import com.nikhilcodes.creditzen.dto.AuthenticationDto.UserDataResponse;
+import com.nikhilcodes.creditzen.shared.dto.AuthenticationDto.UserDataResponse;
 import com.nikhilcodes.creditzen.model.User;
 import com.nikhilcodes.creditzen.model.UserAuth;
-import com.nikhilcodes.creditzen.repository.AuthRepository;
-import com.nikhilcodes.creditzen.repository.UserRepository;
+import com.nikhilcodes.creditzen.core.repository.AuthRepository;
+import com.nikhilcodes.creditzen.core.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 

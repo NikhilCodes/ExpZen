@@ -1,4 +1,4 @@
-package com.nikhilcodes.creditzen.dto.AuthenticationDto;
+package com.nikhilcodes.creditzen.shared.dto.AuthenticationDto;
 
 import lombok.Data;
 
