@@ -50,6 +50,10 @@ export class AuthService {
       .subscribe();
   }
 
+  public registerUserWithNameEmailAndPassword(name, email, password): Observable<object> {
+    return this.http.put(this.authUrl, { name, email, password }, { withCredentials: true });
+  }
+
   public loginWithEmailAndPassword(email, password): Observable<LoginResponse> {
     return this.http.post(this.authUrl, { email, password }, {
       withCredentials: true,

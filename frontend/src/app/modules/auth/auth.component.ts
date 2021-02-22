@@ -18,7 +18,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
           ':enter',
           [
             style({ height: 0, opacity: 0 }),
-            animate('0.3s ease-out',
+            animate('0.3s ease-in',
               style({ height: 76, opacity: 1 })),
           ],
         ),
@@ -36,7 +36,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class AuthComponent {
   name = new FormControl('Nikhil Nayak');
-  email = new FormControl('nikhil.nixel@gmail.com');
+  email = new FormControl('1928239@kiit.ac.in');
   password = new FormControl('123456');
   showPassword = false;
 
@@ -67,8 +67,9 @@ export class AuthComponent {
   }
 
   onRegister(): void {
-    // this.authService.loginWithEmailAndPassword(this.email.value, this.password.value);
-    // tslint:disable-next-line:no-unused-expression
-    null;
+    this.authService.registerUserWithNameEmailAndPassword(this.name.value, this.email.value, this.password.value)
+      .subscribe(_ => {
+        this.onLogin();
+      });
   }
 }
