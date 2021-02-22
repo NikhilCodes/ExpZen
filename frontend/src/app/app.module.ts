@@ -20,12 +20,17 @@ import { JwtInterceptor } from './core/interceptor/jwt.interceptor';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { ModalComponent } from './components/modal/modal.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AuthComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,10 +43,13 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatProgressSpinnerModule,
     MatSnackBarModule,
     MatTableModule,
+    MatPaginatorModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatPaginatorModule,
+    MatSelectModule,
   ],
   providers: [
     {

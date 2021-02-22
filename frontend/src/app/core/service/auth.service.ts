@@ -14,7 +14,6 @@ import { catchError, map, tap } from 'rxjs/operators';
 export class AuthService {
 
   private readonly userSubject = new BehaviorSubject<User>({});
-  private readonly user$ = this.userSubject.asObservable();
   private readonly authStatusSubject = new BehaviorSubject<string>(AuthTypes.LOADING);
   public readonly authStatus$ = this.authStatusSubject.asObservable();
 

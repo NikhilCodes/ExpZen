@@ -5,6 +5,7 @@
   padding: 0 20%;
   overflow-y: scroll;
   height: 100%;
+  background-color: white;
 }
 
 .tile-large {
@@ -29,4 +30,10 @@
 
 .price-text::before {
   content: "₹";
+}
+
+.modal-group {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
 }

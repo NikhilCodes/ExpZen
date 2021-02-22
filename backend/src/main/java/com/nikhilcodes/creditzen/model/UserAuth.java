@@ -14,14 +14,11 @@ public class UserAuth {
     @Column(name = "passkey")
     private String passkeyHashed;
 
-    @Column(name = "user_id")
     private String userId;
 
     @Id
-    @Column(name = "email")
     private String email;
 
-    @Column(name = "refresh_token")
     private String refreshToken;
 
     @Override

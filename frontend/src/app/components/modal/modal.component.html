@@ -1,0 +1,15 @@
+<div class="modal-background" [ngStyle]="{'z-index': visibility ? 999 : -1, 'opacity': visibility ? 1 : 0}">
+  <div class="modal-self">
+    <div style="display: flex;justify-content: space-between;align-items: center">
+      <div class="modal-heading">
+        {{title}}
+      </div>
+      <button mat-icon-button (click)="this.onModalCloseModified()">
+        <mat-icon color="accent">close</mat-icon>
+      </button>
+    </div>
+    <div style="padding: 10px 20px 20px">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

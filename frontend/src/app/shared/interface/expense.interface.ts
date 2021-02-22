@@ -1,8 +1,8 @@
-export type ExpenseTypes = 'Utilities' | 'Technology' | 'Everyday';
+import { ExpenseTypes } from '../types/expense.types';
 
 export interface ExpenseEntity {
   value: number;
-  type: ExpenseTypes;
+  expenseType: ExpenseTypes;
   description: string;
-  createdOn: Date;
+  createdOn: Date | string;
 }

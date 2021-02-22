@@ -1,0 +1,28 @@
+.modal-background {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  background-color: #00000088;
+  transition-duration: 500ms;
+}
+
+.modal-self {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 20px;
+  padding: 5px;
+  width: 300px;
+}
+
+.modal-heading {
+  margin-left: 20px;
+  font-weight: 500;
+  font-size: 18px;
+  color: #5b32cc;
+}

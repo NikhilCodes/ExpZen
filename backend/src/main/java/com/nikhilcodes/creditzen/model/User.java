@@ -13,16 +13,13 @@ import javax.persistence.Table;
 @Table(name = "user")
 public class User {
     @Id
-    @Column(name = "user_id")
     private String userId;
 
-    @Column(name = "name")
     private String name;
 
     @Column(name = "role")
     private String roleType; // Has to be either "ADMIN" or "USER"
 
-    @Column(name = "enabled")
     private int enabled;
 
     @Override

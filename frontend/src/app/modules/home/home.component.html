@@ -1,3 +1,67 @@
+<div class="modal-group">
+  <app-modal
+    [(visibility)]="isAddFundModalVisible"
+    [title]="'Add Fund'"
+  >
+    <div>
+      <mat-form-field style="width: 100%" appearance="outline">
+        <mat-label>What did you buy?</mat-label>
+        <input
+          matInput
+          [formControl]="formDescription"
+          type="text"
+          autocomplete="off"
+          placeholder="Raspberry Pi 4"
+        />
+      </mat-form-field>
+
+      <mat-form-field style="width: 100%" appearance="outline">
+        <mat-label>Amount Spent</mat-label>
+        <input
+          matInput
+          [formControl]="formValue"
+          type="number"
+          autocomplete="off"
+          placeholder="10000"
+        />
+      </mat-form-field>
+
+      <mat-form-field style="width: 100%" appearance="outline">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" [formControl]="formCreatedOn">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field style="width: 100%" appearance="outline">
+        <mat-label>Category</mat-label>
+        <mat-select [formControl]="formCategory">
+          <mat-option *ngFor="let expenseType of expenseTypesList" [value]="expenseType">
+            {{expenseType}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div style="display: flex">
+        <button
+          color="primary"
+          style="width: 100%; margin-right: 3px"
+          mat-stroked-button
+          (click)="closeAddFundModal()"
+        >
+          CANCEL
+        </button>
+        <button
+          color="primary"
+          style="width: 100%; margin-right: 3px"
+          mat-flat-button
+          (click)="onSubmitCreateExpenseForm()"
+        >
+          CONFIRM
+        </button>
+      </div>
+    </div>
+  </app-modal>
+</div>
 <div class="root">
   <div class="tile-large">
     <h1 style="font-weight: 600;margin-bottom: 0">Dashboard</h1>
@@ -20,6 +84,21 @@
         <div class="price-text">{{this.getNumberAsPrice(this.due)}}</div>
       </div>
     </div>
+    <div style="justify-content: space-evenly;display: flex;width: 100%;margin-top: 30px">
+      <button
+        color="primary"
+        style="border-radius: 20px"
+        mat-raised-button
+      >Add Funds
+      </button>
+      <button
+        color="primary"
+        style="border-radius: 20px"
+        mat-raised-button
+        (click)="showAddFundModal()"
+      >Add Expense
+      </button>
+    </div>
   </div>
 
   <div class="tile-large" style="margin-bottom: 50px;">
@@ -36,9 +115,9 @@
           <td mat-cell *matCellDef="let element">{{element.value}}</td>
         </ng-container>
 
-        <ng-container matColumnDef="type">
+        <ng-container matColumnDef="expenseType">
           <th mat-header-cell *matHeaderCellDef>Category</th>
-          <td mat-cell *matCellDef="let element">{{element.type}}</td>
+          <td mat-cell *matCellDef="let element">{{element.expenseType}}</td>
         </ng-container>
 
         <ng-container matColumnDef="description">

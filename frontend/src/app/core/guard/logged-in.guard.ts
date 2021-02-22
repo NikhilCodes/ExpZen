@@ -15,10 +15,12 @@ export class LoggedInGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot,
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (this.authService.authStatus === AuthTypes.LOGGED_IN) {
-      this.router.navigate(['/']);
-      return false;
-    }
+    this.authService.authStatus$.subscribe(authStatus => {
+      if (authStatus === AuthTypes.LOGGED_IN) {
+        this.router.navigate(['/']);
+        return false;
+      }
+    });
 
     return true;
   }
