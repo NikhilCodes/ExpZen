@@ -5,7 +5,7 @@
 ## Tech used:
 - Springboot [Backend]
 - Angular [Frontend]
-- Database [MySql]
+- MySql [Database]
 
 ## Screenshots
 ![Screenshot1](/demo/s1.png)
