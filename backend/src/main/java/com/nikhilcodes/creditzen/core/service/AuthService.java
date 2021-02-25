@@ -39,7 +39,7 @@ public class AuthService {
     }
 
     public boolean userAlreadyExists(String email) {
-        return this.authRepository.findFirstByEmail(email).isPresent();
+        return this.authRepository.findUserAuthByEmail(email).isPresent();
     }
 
     public UserDataResponse createNewUser(String email, String password, String name) {

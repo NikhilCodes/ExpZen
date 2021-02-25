@@ -37,15 +37,17 @@ public interface AuthRepository extends JpaRepository<UserAuth, String> {
         return userId;
     }
 
-    Optional<UserAuth> findFirstByEmail(String email);
-
-    UserAuth findUserAuthByEmail(String email);
+    Optional<UserAuth> findUserAuthByEmail(String email);
 
     default String getRefreshTokenByEmail(String email) {
-        return findUserAuthByEmail(email).getRefreshToken();
+        return findUserAuthByEmail(email).get().getRefreshToken();
     }
 
     default String getHashedPasswordByEmail(String email) {
-        return findUserAuthByEmail(email).getPasskeyHashed();
+        Optional<UserAuth> fetchedUserAuth = findUserAuthByEmail(email);
+        if (fetchedUserAuth.isEmpty()) {
+            return "";
+        }
+        return fetchedUserAuth.get().getPasskeyHashed();
     }
 }

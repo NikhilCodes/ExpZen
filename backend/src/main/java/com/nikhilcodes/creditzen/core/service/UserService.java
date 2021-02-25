@@ -6,13 +6,13 @@ import com.nikhilcodes.creditzen.model.UserAuth;
 import com.nikhilcodes.creditzen.core.repository.AuthRepository;
 import com.nikhilcodes.creditzen.core.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -28,19 +28,19 @@ public class UserService {
 
     public UserDetails loadUserByEmail(String email) throws UsernameNotFoundException {
         // Here we consider email as username!
-        UserAuth fetchedUserAuth = this.authRepository.findUserAuthByEmail(email);
-        if (fetchedUserAuth == null) {
+        Optional<UserAuth> fetchedUserAuth = this.authRepository.findUserAuthByEmail(email);
+        if (fetchedUserAuth.isEmpty()) {
             return null;
         }
 
-        User fetchedUser = this.userRepository.findByUserId(fetchedUserAuth.getUserId());
+        User fetchedUser = this.userRepository.findByUserId(fetchedUserAuth.get().getUserId());
         if (fetchedUser.getEnabled() != 1) {
             return null;
         }
 
         return new org.springframework.security.core.userdetails.User(
-          fetchedUserAuth.getEmail(),
-          fetchedUserAuth.getPasskeyHashed(),
+          fetchedUserAuth.get().getEmail(),
+          fetchedUserAuth.get().getPasskeyHashed(),
           Collections.singletonList(new SimpleGrantedAuthority(fetchedUser.getRoleType()))
         );
     }
