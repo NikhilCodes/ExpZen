@@ -19,7 +19,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
           [
             style({ height: 0, opacity: 0 }),
             animate('0.3s ease-in-out',
-              style({ height: 76, opacity: 1 })),
+              style({ height: 76, opacity: 1 }),
+            ),
           ],
         ),
         transition(
@@ -27,7 +28,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
           [
             style({ height: 76, opacity: 1 }),
             animate('0.3s ease-in-out',
-              style({ height: 0, opacity: 0 })),
+              style({ height: 0, opacity: 0 }),
+            ),
           ],
         ),
       ],
@@ -39,6 +41,7 @@ export class AuthComponent {
   email = new FormControl('1928239@kiit.ac.in');
   password = new FormControl('123456');
   showPassword = false;
+  minimumPasswordLength = 8;
 
   authType: 'REGISTER' | 'LOGIN' = 'LOGIN';
 
@@ -67,7 +70,23 @@ export class AuthComponent {
   }
 
   onRegister(): void {
+    if (this.password.value.length < this.minimumPasswordLength) {
+      this.snackBar.open('Consider using a stronger password!', '', { duration: 2000 });
+    }
     this.authService.registerUserWithNameEmailAndPassword(this.name.value, this.email.value, this.password.value)
+      .pipe(
+        catchError((err) => {
+          if (err.error.message === 'INVALID_CREDENTIAL_EXCEPTION') {
+            this.snackBar.open('Invalid Email or Password!', '', { duration: 2000 });
+          } else if (err.error.message === 'EMAIL_ALREADY_EXISTS') {
+            this.snackBar.open('This Email is already used!', '', { duration: 2000 });
+          } else if (err.error.message === 'SOME_INTERNAL_ERROR_OCCURRED') {
+            this.snackBar.open('Something went wrong!', '', { duration: 2000 });
+          }
+
+          return throwError(err);
+        }),
+      )
       .subscribe(_ => {
         this.onLogin();
       });

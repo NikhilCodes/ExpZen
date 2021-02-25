@@ -14,6 +14,7 @@ import org.springframework.security.authentication.InsufficientAuthenticationExc
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedCredentialsNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
+import javax.management.openmbean.KeyAlreadyExistsException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -44,12 +45,10 @@ public class AuthController {
 
             Cookie jwtAccessTokenCookie = new Cookie(StringConstants.JWT_AT_COOKIE_NAME, jwtAccessToken);
             jwtAccessTokenCookie.setMaxAge(NumberConstants.JWT_AT_COOKIE_MAX_AGE);
-//        jwtAccessTokenCookie.setPath("/");
             jwtAccessTokenCookie.setHttpOnly(true); // Makes it accessible by server only.
 
             Cookie refreshTokenCookie = new Cookie(StringConstants.RT_COOKIE_NAME, refreshToken);
             refreshTokenCookie.setMaxAge(NumberConstants.RT_COOKIE_MAX_AGE);
-//        refreshTokenCookie.setPath("/");
             refreshTokenCookie.setHttpOnly(true); // Makes it accessible by server only.
 
             response.addCookie(jwtAccessTokenCookie);
@@ -62,13 +61,25 @@ public class AuthController {
             );
         } catch (BadCredentialsException exception) {
             response.sendError(403, exception.getMessage());
-            return new UserDataResponse(null, null, null);
+            return new UserDataResponse("BAD_CREDENTIAL_ERROR"); // This line doesn't really matter! Just need to Return UserDataResponse
         }
     }
 
     @PutMapping()
-    public void register(@RequestBody UserRegBody requestBody) {
-        authService.createNewUser(requestBody.getEmail(), requestBody.getPassword(), requestBody.getName());
+    public UserDataResponse register(@RequestBody UserRegBody requestBody) throws KeyAlreadyExistsException {
+        if (this.authService.userAlreadyExists(requestBody.getEmail())) {
+            throw new KeyAlreadyExistsException("EMAIL_ALREADY_EXISTS");
+        }
+
+        try {
+            return this.authService.createNewUser(
+              requestBody.getEmail(),
+              requestBody.getPassword(),
+              requestBody.getName()
+            );
+        } catch (Exception e) {
+            throw new KeyAlreadyExistsException("SOME_INTERNAL_ERROR_OCCURRED");
+        }
     }
 
     @PostMapping("auto")

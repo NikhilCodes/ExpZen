@@ -38,7 +38,7 @@
       </mat-icon>
       <mat-hint
         *ngIf="password.value!=='' && authType === 'REGISTER'">
-        {{password.value.length < 8 ? 'Weak Password.' : 'Strong Enough!'}}
+        {{password.value.length < minimumPasswordLength ? 'Weak Password.' : 'Strong Enough!'}}
       </mat-hint>
     </mat-form-field>
     <button

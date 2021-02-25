@@ -4,6 +4,7 @@ import com.nikhilcodes.creditzen.shared.dto.AuthenticationDto.UserAuthServiceRes
 import com.nikhilcodes.creditzen.model.User;
 import com.nikhilcodes.creditzen.core.repository.AuthRepository;
 import com.nikhilcodes.creditzen.core.repository.UserRepository;
+import com.nikhilcodes.creditzen.shared.dto.AuthenticationDto.UserDataResponse;
 import com.nikhilcodes.creditzen.shared.util.Encoder;
 import com.nikhilcodes.creditzen.shared.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,9 +38,14 @@ public class AuthService {
         this.passwordEncoder = encoder.passwordEncoder();
     }
 
-    public void createNewUser(String email, String password, String name) {
+    public boolean userAlreadyExists(String email) {
+        return this.authRepository.findFirstByEmail(email).isPresent();
+    }
+
+    public UserDataResponse createNewUser(String email, String password, String name) {
         String passwordHashed = this.passwordEncoder.encode(password);
         String userId = this.authRepository.createUser(email, passwordHashed, name);
+        return new UserDataResponse(name, email, userId);
     }
 
     public UserAuthServiceResponse authenticate(String email, String password) {

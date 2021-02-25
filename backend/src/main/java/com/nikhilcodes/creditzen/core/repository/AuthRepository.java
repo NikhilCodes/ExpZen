@@ -1,5 +1,6 @@
 package com.nikhilcodes.creditzen.core.repository;
 
+import com.nikhilcodes.creditzen.model.User;
 import com.nikhilcodes.creditzen.model.UserAuth;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -7,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
 import java.util.UUID;
 
 public interface AuthRepository extends JpaRepository<UserAuth, String> {
@@ -34,6 +36,8 @@ public interface AuthRepository extends JpaRepository<UserAuth, String> {
         createUserForReal(userId, name);
         return userId;
     }
+
+    Optional<UserAuth> findFirstByEmail(String email);
 
     UserAuth findUserAuthByEmail(String email);
 

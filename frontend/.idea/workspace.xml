@@ -2,6 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b7628681-e981-497e-8b45-0da485a9227f" name="Default Changelist" comment="Added Login Bg">
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/creditzen/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/creditzen/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/creditzen/core/repository/AuthRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/creditzen/core/repository/AuthRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/creditzen/core/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/creditzen/core/service/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/creditzen/shared/dto/AuthenticationDto/UserDataResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/creditzen/shared/dto/AuthenticationDto/UserDataResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/auth/auth.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/auth/auth.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/modules/auth/auth.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/auth/auth.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -104,7 +110,7 @@
       <workItem from="1614157643270" duration="5000" />
       <workItem from="1614181355461" duration="450000" />
       <workItem from="1614264709710" duration="384000" />
-      <workItem from="1614271758450" duration="977000" />
+      <workItem from="1614271758450" duration="1780000" />
     </task>
     <task id="LOCAL-00001" summary="Added Login Bg">
       <created>1611894715944</created>
