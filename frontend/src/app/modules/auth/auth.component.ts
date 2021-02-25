@@ -18,7 +18,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
           ':enter',
           [
             style({ height: 0, opacity: 0 }),
-            animate('0.3s ease-in',
+            animate('0.3s ease-in-out',
               style({ height: 76, opacity: 1 })),
           ],
         ),
@@ -26,7 +26,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
           ':leave',
           [
             style({ height: 76, opacity: 1 }),
-            animate('0.3s ease-in',
+            animate('0.3s ease-in-out',
               style({ height: 0, opacity: 0 })),
           ],
         ),
