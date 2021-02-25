@@ -6,7 +6,6 @@ import { ExpenseService } from '../../core/service/expense.service';
 import { AuthService } from '../../core/service/auth.service';
 import { ExpenseTypes } from '../../shared/types/expense.types';
 import { FormControl } from '@angular/forms';
-import { toTitleCase } from 'codelyzer/util/utils';
 
 @Component({
   selector: 'app-home',

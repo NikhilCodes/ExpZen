@@ -128,6 +128,12 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
+      <div *ngIf="isLoadingExpenseData"
+           style="display: flex; justify-content: center; align-items: center; background: white;">
+        <mat-progress-spinner
+          mode="indeterminate">
+        </mat-progress-spinner>
+      </div>
       <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
     </div>
   </div>
