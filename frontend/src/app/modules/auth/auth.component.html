@@ -33,11 +33,13 @@
         [type]="showPassword ? 'text' : 'password'"
         placeholder="********"
       />
-      <mat-icon matSuffix (click)="showPassword = !showPassword">
+      <mat-icon matSuffix (click)="showPassword = !showPassword" style="cursor: pointer">
         {{showPassword ? 'visibility_off' : 'visibility'}}
       </mat-icon>
       <mat-hint
-        *ngIf="password.value!==''">{{password.value.length < 8 ? 'Weak Password.' : 'Strong Enough!'}}</mat-hint>
+        *ngIf="password.value!=='' && authType === 'REGISTER'">
+        {{password.value.length < 8 ? 'Weak Password.' : 'Strong Enough!'}}
+      </mat-hint>
     </mat-form-field>
     <button
       color="primary"
