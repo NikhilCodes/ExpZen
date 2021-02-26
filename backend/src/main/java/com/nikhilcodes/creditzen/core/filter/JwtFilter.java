@@ -46,7 +46,7 @@ public class JwtFilter extends OncePerRequestFilter {
         try {
             if (jwtCookie != null) {
                 jwt = jwtCookie.getValue();
-                email = jwtUtil.extractUserEmail(jwt);
+                email = jwtUtil.extractSubject(jwt);
             } else {
                 httpServletResponse.sendError(401, "User not authenticated!");
             }

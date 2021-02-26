@@ -10,7 +10,6 @@ import com.nikhilcodes.creditzen.core.service.AuthService;
 import com.nikhilcodes.creditzen.core.service.UserService;
 import com.nikhilcodes.creditzen.shared.util.JwtUtil;
 import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.InsufficientAuthenticationException;
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedCredentialsNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
@@ -48,7 +47,7 @@ public class AuthController {
             jwtAccessTokenCookie.setHttpOnly(true); // Makes it accessible by server only.
 
             Cookie refreshTokenCookie = new Cookie(StringConstants.RT_COOKIE_NAME, refreshToken);
-            refreshTokenCookie.setMaxAge(NumberConstants.RT_COOKIE_MAX_AGE);
+            refreshTokenCookie.setMaxAge(NumberConstants.JWT_RT_COOKIE_MAX_AGE);
             refreshTokenCookie.setHttpOnly(true); // Makes it accessible by server only.
 
             response.addCookie(jwtAccessTokenCookie);
@@ -98,7 +97,7 @@ public class AuthController {
         }
 
         String jwt = jwtCookie.getValue();
-        String email = jwtUtil.extractUserEmail(jwt);
+        String email = jwtUtil.extractSubject(jwt);
 
         return userService.getUserDataByEmail(email);
     }
@@ -107,7 +106,7 @@ public class AuthController {
     public void setNewAccessToken(HttpServletRequest request, HttpServletResponse response) {
         Cookie[] cookies = request.getCookies();
         if (cookies == null) {
-            throw new InsufficientAuthenticationException("You need to authenticate first!");
+            throw new PreAuthenticatedCredentialsNotFoundException("You need to authenticate!");
         }
 
         Cookie jwtAtCookie = Arrays.stream(cookies)

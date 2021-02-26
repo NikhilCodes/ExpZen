@@ -9,6 +9,7 @@ import com.nikhilcodes.creditzen.shared.util.Encoder;
 import com.nikhilcodes.creditzen.shared.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.CredentialsExpiredException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -61,8 +62,10 @@ public class AuthService {
         authSvcResp.setEmail(userDetails.getUsername());
         authSvcResp.setName(user.getName());
         authSvcResp.setUserId(user.getUserId());
-        authSvcResp.setAccessToken(jwtUtil.generateToken(userDetails));
-        authSvcResp.setRefreshToken(this.authRepository.getRefreshTokenByEmail(email));
+        authSvcResp.setAccessToken(jwtUtil.generateAccessToken(userDetails.getUsername()));
+        authSvcResp.setRefreshToken(
+          jwtUtil.generateRefreshToken(this.authRepository.getRefreshTokenByEmail(email))
+        );
 
         return authSvcResp;
     }
@@ -71,18 +74,26 @@ public class AuthService {
         String email;
 
         if (jwtUtil.isTokenExpired(expiredAccessToken)) {
-            email = jwtUtil.extractUserEmail(expiredAccessToken);
+            email = jwtUtil.extractSubject(expiredAccessToken);
             final UserDetails userDetails = this.userService.loadUserByEmail(email);
             if (userDetails == null) {
                 throw new UsernameNotFoundException(email);
             }
 
-            if (!this.authRepository.getRefreshTokenByEmail(email).equals(refreshToken)) {
+            if (!jwtUtil.validateToken(refreshToken)) {
+                throw new CredentialsExpiredException("Login expired, need to re-login.");
+            }
+
+            if (
+              !this.authRepository.getRefreshTokenByEmail(email)
+                .equals(jwtUtil.extractSubject(refreshToken))
+            ) {
                 throw new PreAuthenticatedCredentialsNotFoundException("Refresh token mismatch!");
             }
 
-            return jwtUtil.generateToken(userDetails);
+            return jwtUtil.generateAccessToken(userDetails.getUsername());
         } else {
+            // We return the non-expired actually. Don't mind the name.
             return expiredAccessToken;
         }
     }
