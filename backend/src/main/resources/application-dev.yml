@@ -13,7 +13,7 @@ spring:
     baseline-on-migrate: true
 
   datasource:
-    url: jdbc:mysql://localhost:3306/creditzendb
+    url: jdbc:mysql://localhost:3306/expzendb
     username: nikhilcodes
     password: shield3120
 # Added this Commandline arg to use dev env: `-Dspring.profiles.active=dev`

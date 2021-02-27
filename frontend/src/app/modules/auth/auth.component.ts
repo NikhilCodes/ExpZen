@@ -72,6 +72,7 @@ export class AuthComponent {
   onRegister(): void {
     if (this.password.value.length < this.minimumPasswordLength) {
       this.snackBar.open('Consider using a stronger password!', '', { duration: 2000 });
+      return;
     }
     this.authService.registerUserWithNameEmailAndPassword(this.name.value, this.email.value, this.password.value)
       .pipe(

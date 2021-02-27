@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { BehaviorSubject, Observable, throwError } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '../../shared/interface/user.interface';
 import { environment } from '../../../environments/environment';
 import { AuthTypes } from '../../shared/types/auth.types';
 import { LoginResponse } from '../../shared/interface/auth.interface';
 import { Router } from '@angular/router';
-import { catchError, map, tap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',

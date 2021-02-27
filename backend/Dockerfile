@@ -6,11 +6,11 @@ COPY .mvn .mvn
 
 COPY pom.xml .
 
-RUN ./mvnw dependency:go-offline -X
+RUN ./mvnw dependency:go-offline
 
 COPY src src
 
-RUN ./mvnw package -DskipTests -X
+RUN ./mvnw package -DskipTests
 RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
 
 FROM adoptopenjdk/openjdk14:jre-14_36
@@ -22,4 +22,4 @@ COPY --from=build ${DEPENDENCY}/BOOT-INF/lib /app/lib
 COPY --from=build ${DEPENDENCY}/META-INF /app/META-INF
 COPY --from=build ${DEPENDENCY}/BOOT-INF/classes /app
 
-ENTRYPOINT ["java","-cp","app:app/lib/*","com.nikhilcodes.creditzen.CreditZenApplication"]
+ENTRYPOINT ["java","-cp","app:app/lib/*","com.nikhilcodes.expzen.ExpZenApplication"]

@@ -2,6 +2,8 @@ server:
   port: 8000
   servlet:
     context-path: /api/
+  error:
+    include-message: always
 
 spring:
   security:
