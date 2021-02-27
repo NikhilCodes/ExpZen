@@ -8,7 +8,7 @@ import { AuthTypes } from './shared/types/auth.types';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'CreditZen';
+  title = 'ExpZen';
   authStatus = AuthTypes.LOADING;
 
   constructor(private authService: AuthService) {

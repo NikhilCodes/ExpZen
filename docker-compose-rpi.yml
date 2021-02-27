@@ -8,39 +8,26 @@ services:
       - "8000:8000"
     restart: always
     depends_on:
-      - mysqldb
+      - db
     networks:
-      - backend
-      - frontend
+      - expzen_backend
 
-  mysqldb:
-    image: mysql
+  db:
+    image: hypriot/rpi-mysql
+    ports:
+      - "3306:3306"
     restart: always
-    environment:
+    environment: 
       MYSQL_DATABASE: expzendb
       MYSQL_USER: nikhilcodes
       MYSQL_PASSWORD: testtreasure321
       MYSQL_ROOT_PASSWORD: root
-    volumes:
+    volumes: 
       - db-data:/var/lib/mysql
     networks:
-      - backend
-
-  client:
-    build:
-      context: frontend
-      dockerfile: Dockerfile
-    ports:
-      - "4200:80"
-    restart: always
-    depends_on:
-      - server
-    networks:
-      - frontend
-
+      - expzen_backend
 volumes:
   db-data:
 
-networks:
-  backend:
-  frontend:
+networks: 
+  expzen_backend:

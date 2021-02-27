@@ -1,4 +1,4 @@
-# CreditZen
+# ExpZen
 
 > WIP
 

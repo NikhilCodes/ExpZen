@@ -13,9 +13,9 @@ spring:
     baseline-on-migrate: true
 
   datasource:
-    url: jdbc:mysql://mysqldb:3306/creditzendb
+    url: jdbc:mysql://mysqldb:3306/expzendb?useSSL=false&allowPublicKeyRetrieval=true
     username: nikhilcodes
-    password: shield3120
+    password: testtreasure321
 
 jwt:
   secret: gf768oyut7867v58b7rybpolkl09t6266g
