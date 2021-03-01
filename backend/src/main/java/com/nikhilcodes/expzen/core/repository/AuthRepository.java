@@ -45,7 +45,7 @@ public interface AuthRepository extends JpaRepository<UserAuth, String> {
 
     default String getHashedPasswordByEmail(String email) {
         Optional<UserAuth> fetchedUserAuth = findUserAuthByEmail(email);
-        if (fetchedUserAuth.isEmpty()) {
+        if (!fetchedUserAuth.isPresent()) {
             return "";
         }
         return fetchedUserAuth.get().getPasskeyHashed();

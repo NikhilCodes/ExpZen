@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk14 as build
+FROM openjdk:8-jdk-alpine as build
 
 WORKDIR /server
 COPY mvnw .
@@ -13,7 +13,8 @@ COPY src src
 RUN ./mvnw package -DskipTests
 RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
 
-FROM adoptopenjdk/openjdk14:jre-14_36
+# FROM adoptopenjdk/openjdk14:jre-14_36
+FROM openjdk:8-jre-alpine
 
 ARG DEPENDENCY=/server/target/dependency
 

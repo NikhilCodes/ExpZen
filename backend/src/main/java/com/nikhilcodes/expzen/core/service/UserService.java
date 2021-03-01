@@ -29,7 +29,7 @@ public class UserService {
     public UserDetails loadUserByEmail(String email) throws UsernameNotFoundException {
         // Here we consider email as username!
         Optional<UserAuth> fetchedUserAuth = this.authRepository.findUserAuthByEmail(email);
-        if (fetchedUserAuth.isEmpty()) {
+        if (!fetchedUserAuth.isPresent()) {
             return null;
         }
 
