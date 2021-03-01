@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Arrays;
 
-@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*", allowCredentials = "true")
+@CrossOrigin(origins = "https://expzen.netlify.app", allowedHeaders = "*", allowCredentials = "true")
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
