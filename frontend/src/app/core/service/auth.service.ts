@@ -59,7 +59,6 @@ export class AuthService {
       withCredentials: true,
     }).pipe(
       tap((value: LoginResponse) => {
-        console.log(value);
         this.userSubject.next(value);
         if (value.userId) {
           this.authStatusSubject.next(AuthTypes.LOGGED_IN);
