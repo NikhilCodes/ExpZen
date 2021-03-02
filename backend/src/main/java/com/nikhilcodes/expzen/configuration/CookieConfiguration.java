@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-public class CookieConfig implements WebMvcConfigurer {
+public class CookieConfiguration implements WebMvcConfigurer {
 
     @Bean
     public TomcatContextCustomizer sameSiteCookiesConfig() {
