@@ -20,7 +20,7 @@ public class ExpenseService {
     public List<ExpenseDTO> getExpenseByUser(String uid) {
         List<ExpenseDTO> expenseData = new ArrayList<>();
 
-        expenseRepository.findAllByUserIdOrderByCreatedOnDescCreationTimestampDesc(uid).forEach(expense -> {
+        this.expenseRepository.findAllByUserIdOrderByCreatedOnDescCreationTimestampDesc(uid).forEach(expense -> {
             expenseData.add(
               new ExpenseDTO(
                 expense.getValue(),
@@ -30,6 +30,7 @@ public class ExpenseService {
               )
             );
         });
+
         return expenseData;
     }
 

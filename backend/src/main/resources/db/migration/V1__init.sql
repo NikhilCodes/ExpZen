@@ -17,19 +17,20 @@ CREATE TABLE user
 CREATE TABLE expense
 (
     expense_id         VARCHAR(36) PRIMARY KEY,
-    user_id            VARCHAR(36)    NOT NULL,
-    expense_type       ENUM('TECH', 'EVERYDAY', 'FOOD', 'UTILITIES') NOT NULL,
-    description        VARCHAR(200) NULL,
-    value              DECIMAL(10, 2) NOT NULL NOT NULL,
+    user_id            VARCHAR(36)                                    NOT NULL,
+    expense_type       ENUM ('TECH', 'EVERYDAY', 'FOOD', 'UTILITIES') NOT NULL,
+    description        VARCHAR(200)                                   NULL,
+    value              DECIMAL(10, 2)                                 NOT NULL NOT NULL,
     created_on         DATE,
     creation_timestamp TIMESTAMP
 );
 
 CREATE TABLE income
 (
-    income_id   varchar(36) PRIMARY KEY,
-    user_id     varchar(36)    NOT NULL,
-    income_type ENUM ('utilities', 'technology', 'everyday') NOT NULL,
-    description VARCHAR(200) NULL,
-    value       DECIMAL(10, 2) NOT NULL
+    income_id          VARCHAR(36) PRIMARY KEY,
+    user_id            VARCHAR(36)                                    NOT NULL,
+    income_type        ENUM ('PAYCHECK', 'REFUND', 'INTEREST', 'BONUS') NOT NULL,
+    value              DECIMAL(10, 2)                                 NOT NULL NOT NULL,
+    created_on         DATE,
+    creation_timestamp TIMESTAMP
 );

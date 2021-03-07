@@ -5,6 +5,7 @@ import com.nikhilcodes.expzen.model.User;
 import com.nikhilcodes.expzen.model.UserAuth;
 import com.nikhilcodes.expzen.core.repository.AuthRepository;
 import com.nikhilcodes.expzen.core.repository.UserRepository;
+import com.nikhilcodes.expzen.shared.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -26,7 +27,7 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public UserDetails loadUserByEmail(String email) throws UsernameNotFoundException {
+    public UserDTO loadUserByEmail(String email) throws UsernameNotFoundException {
         // Here we consider email as username!
         Optional<UserAuth> fetchedUserAuth = this.authRepository.findUserAuthByEmail(email);
         if (!fetchedUserAuth.isPresent()) {
@@ -38,11 +39,7 @@ public class UserService {
             return null;
         }
 
-        return new org.springframework.security.core.userdetails.User(
-          fetchedUserAuth.get().getEmail(),
-          fetchedUserAuth.get().getPasskeyHashed(),
-          Collections.singletonList(new SimpleGrantedAuthority(fetchedUser.getRoleType()))
-        );
+        return new UserDTO(fetchedUser.getUserId(), email, fetchedUser.getName(), fetchedUser.getRoleType());
     }
 
     public UserDataResponse getUserDataByEmail(String email) {

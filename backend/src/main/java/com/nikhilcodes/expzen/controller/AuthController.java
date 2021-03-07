@@ -19,8 +19,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Arrays;
 
-@CrossOrigin(origins = "https://expzen.netlify.app", allowedHeaders = "*", allowCredentials = "true")
-@RestController 
+@CrossOrigin(origins = {"http://localhost:4200", "https://expzen.netlify.app"}, allowedHeaders = "*", allowCredentials = "true")
+@RestController
 @RequestMapping("/auth")
 public class AuthController {
 
@@ -45,15 +45,15 @@ public class AuthController {
             Cookie jwtAccessTokenCookie = new Cookie(StringConstants.JWT_AT_COOKIE_NAME, jwtAccessToken);
             jwtAccessTokenCookie.setMaxAge(NumberConstants.JWT_AT_COOKIE_MAX_AGE);
             jwtAccessTokenCookie.setHttpOnly(true); // Makes it accessible by server only.
-            jwtAccessTokenCookie.setSecure(true);
-            
+//            jwtAccessTokenCookie.setSecure(true);
+
 
             Cookie refreshTokenCookie = new Cookie(StringConstants.RT_COOKIE_NAME, refreshToken);
             refreshTokenCookie.setMaxAge(NumberConstants.JWT_RT_COOKIE_MAX_AGE);
             refreshTokenCookie.setHttpOnly(true); // Makes it accessible by server only.
-            refreshTokenCookie.setSecure(true);
-        
-        
+//            refreshTokenCookie.setSecure(true);
+
+
             response.addCookie(jwtAccessTokenCookie);
             response.addCookie(refreshTokenCookie);
 

@@ -45,7 +45,7 @@ public class Expense {
 
     @Override
     public String toString() {
-        return "UserAuth{" +
+        return "Expense{" +
           "\n\texpenseId='" + expenseId + '\'' +
           ",\n\tuserId='" + userId + '\'' +
           ",\n\texpenseType='" + expenseType + '\'' +

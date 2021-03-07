@@ -6,6 +6,8 @@ import { ExpenseService } from '../../core/service/expense.service';
 import { AuthService } from '../../core/service/auth.service';
 import { ExpenseTypes } from '../../shared/types/expense.types';
 import { FormControl } from '@angular/forms';
+import { IncomeTypes } from '../../shared/types/income.types';
+import { IncomeService } from '../../core/service/income.service';
 
 @Component({
   selector: 'app-home',
@@ -18,10 +20,13 @@ export class HomeComponent implements AfterViewInit {
   due: number;
 
   displayedColumns: string[] = ['createdOn', 'value', 'expenseType', 'description'];
+  incomeTypesList = Object.values(IncomeTypes);
   expenseTypesList = Object.values(ExpenseTypes);
 
+  isAddFundsModalVisible = false;
+
   isLoadingExpenseData = true;
-  isAddFundModalVisible = false;
+  isAddExpenseModalVisible = false;
 
   // Form Value
   formValue = new FormControl(null);
@@ -34,7 +39,7 @@ export class HomeComponent implements AfterViewInit {
   @ViewChild(MatPaginator)
   paginator: MatPaginator;
 
-  constructor(private expenseService: ExpenseService, private authService: AuthService) {
+  constructor(private incomeService: IncomeService, private expenseService: ExpenseService, private authService: AuthService) {
     this.income = 8000;
     this.expense = 0;
     this.due = 0;
@@ -53,12 +58,20 @@ export class HomeComponent implements AfterViewInit {
       });
   }
 
-  showAddFundModal(): void {
-    this.isAddFundModalVisible = true;
+  showAddFundsModal(): void {
+    this.isAddFundsModalVisible = true;
   }
 
-  closeAddFundModal(): void {
-    this.isAddFundModalVisible = false;
+  closeAddFundsModal(): void {
+    this.isAddFundsModalVisible = false;
+  }
+
+  showAddExpenseModal(): void {
+    this.isAddExpenseModalVisible = true;
+  }
+
+  closeAddExpenseModal(): void {
+    this.isAddExpenseModalVisible = false;
   }
 
   clearForm(): void {
@@ -77,9 +90,24 @@ export class HomeComponent implements AfterViewInit {
     }).subscribe(_ => {
       this.clearForm();
       this.loadAllExpensesForUser();
-      this.closeAddFundModal();
+      this.closeAddExpenseModal();
     });
+  }
 
+  refreshBalance(): void {
+
+  }
+
+  onSubmitCreateFundsForm(): void {
+    this.incomeService.createIncomeByUserId({
+      value: this.formValue.value,
+      incomeType: this.formCategory.value,
+      createdOn: this.formCreatedOn.value,
+    }).subscribe(_ => {
+      this.clearForm();
+      this.refreshBalance();
+      this.closeAddFundsModal();
+    });
   }
 
   getNumberAsPrice(num: number): string {

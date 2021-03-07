@@ -1,7 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b7628681-e981-497e-8b45-0da485a9227f" name="Default Changelist" comment="Added Login Bg" />
+    <list default="true" id="b7628681-e981-497e-8b45-0da485a9227f" name="Default Changelist" comment="Added Login Bg">
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/controller/IncomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/core/repository/IncomeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/core/service/IncomeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/model/Income.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/shared/dto/IncomeDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/shared/dto/UserDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/shared/enums/IncomeType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/shared/interface/income.interface.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/shared/types/income.types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/configuration/CookieConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/configuration/CookieConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/constants/StringConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/constants/StringConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/controller/ApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/controller/ApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/controller/ExpenseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/controller/ExpenseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/core/filter/JwtFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/core/filter/JwtFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/core/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/core/service/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/core/service/ExpenseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/core/service/ExpenseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/core/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/core/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/model/Expense.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/model/Expense.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/resources/db/migration/V1__init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/resources/db/migration/V1__init.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/service/expense.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/service/expense.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/home/home.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/home/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/environments/environment.prod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/environments/environment.prod.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -107,6 +135,7 @@
       <workItem from="1614407711147" duration="4746000" />
       <workItem from="1614442242019" duration="841000" />
       <workItem from="1614455489434" duration="6000" />
+      <workItem from="1615115297408" duration="8466000" />
     </task>
     <task id="LOCAL-00001" summary="Added Login Bg">
       <created>1611894715944</created>

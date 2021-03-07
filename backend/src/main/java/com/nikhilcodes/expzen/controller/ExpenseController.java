@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "https://expzen.netlify.app", allowedHeaders = "*", allowCredentials = "true")
+@CrossOrigin(origins = {"http://localhost:4200", "https://expzen.netlify.app"}, allowedHeaders = "*", allowCredentials = "true")
 @RestController
 @RequestMapping("/expense")
 public class ExpenseController {
@@ -18,7 +18,7 @@ public class ExpenseController {
     }
 
     @GetMapping("/{userId}")
-    public List<ExpenseDTO> getExpenseByUser(@PathVariable("userId") String uid) {
+    public List<ExpenseDTO> getExpensesByUser(@PathVariable("userId") String uid) {
         return this.expenseService.getExpenseByUser(uid);
     }
 

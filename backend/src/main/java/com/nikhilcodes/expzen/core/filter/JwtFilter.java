@@ -41,17 +41,17 @@ public class JwtFilter extends OncePerRequestFilter {
           .orElse(null);
 
         String jwt = null;
-        String email = null;
+        String uid = null;
 
         try {
             if (jwtCookie != null) {
                 jwt = jwtCookie.getValue();
-                email = jwtUtil.extractSubject(jwt);
+                uid = jwtUtil.extractSubject(jwt);
             } else {
                 httpServletResponse.sendError(401, "User not authenticated!");
             }
 
-            if (email != null) {
+            if (uid != null) {
                 if (!jwtUtil.validateToken(jwt)) {
                     httpServletResponse.sendError(401, "EXPIRED_JWT_TOKEN_EXCEPTION");
                     return;

@@ -5,12 +5,12 @@ import com.nikhilcodes.expzen.model.User;
 import com.nikhilcodes.expzen.core.repository.AuthRepository;
 import com.nikhilcodes.expzen.core.repository.UserRepository;
 import com.nikhilcodes.expzen.shared.dto.AuthenticationDto.UserDataResponse;
+import com.nikhilcodes.expzen.shared.dto.UserDTO;
 import com.nikhilcodes.expzen.shared.util.Encoder;
 import com.nikhilcodes.expzen.shared.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.CredentialsExpiredException;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedCredentialsNotFoundException;
@@ -55,16 +55,16 @@ public class AuthService {
             throw new BadCredentialsException("INVALID_CREDENTIAL_EXCEPTION");
         }
 
-        final UserDetails userDetails = this.userService.loadUserByEmail(email);
+        final UserDTO userDetails = this.userService.loadUserByEmail(email);
 
         UserAuthServiceResponse authSvcResp = new UserAuthServiceResponse();
-        User user = this.userRepository.findUserByEmail(userDetails.getUsername());
-        authSvcResp.setEmail(userDetails.getUsername());
+        User user = this.userRepository.findUserByEmail(userDetails.getEmail());
+        authSvcResp.setEmail(userDetails.getEmail());
         authSvcResp.setName(user.getName());
         authSvcResp.setUserId(user.getUserId());
-        authSvcResp.setAccessToken(jwtUtil.generateAccessToken(userDetails.getUsername()));
+        authSvcResp.setAccessToken(jwtUtil.generateAccessToken(userDetails.getUid()));
         authSvcResp.setRefreshToken(
-          jwtUtil.generateRefreshToken(this.authRepository.getRefreshTokenByEmail(email))
+          jwtUtil.generateRefreshToken(this.authRepository.getRefreshTokenByEmail(userDetails.getEmail()))
         );
 
         return authSvcResp;
@@ -75,7 +75,7 @@ public class AuthService {
 
         if (jwtUtil.isTokenExpired(expiredAccessToken)) {
             email = jwtUtil.extractSubject(expiredAccessToken);
-            final UserDetails userDetails = this.userService.loadUserByEmail(email);
+            final UserDTO userDetails = this.userService.loadUserByEmail(email);
             if (userDetails == null) {
                 throw new UsernameNotFoundException(email);
             }
@@ -91,7 +91,7 @@ public class AuthService {
                 throw new PreAuthenticatedCredentialsNotFoundException("Refresh token mismatch!");
             }
 
-            return jwtUtil.generateAccessToken(userDetails.getUsername());
+            return jwtUtil.generateAccessToken(userDetails.getUid());
         } else {
             // We return the non-expired actually. Don't mind the name.
             return expiredAccessToken;

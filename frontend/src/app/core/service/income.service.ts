@@ -1,24 +1,24 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { ExpenseEntity } from '../../shared/interface/expense.interface';
 import { Observable } from 'rxjs';
-import { filter, map, tap } from 'rxjs/operators';
+import { IncomeEntity } from '../../shared/interface/income.interface';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ExpenseService {
-  private expenseUrl = `${environment.serverUrl}/expense`;
+export class IncomeService {
+  private incomeUrl = `${environment.serverUrl}/income`;
 
   constructor(private http: HttpClient) { }
 
-  public findAllExpensesByUserId(uid: string): Observable<ExpenseEntity[]> {
+  public findAllIncomesByUserId(): Observable<IncomeEntity[]> {
     return this.http.get(
-      `${this.expenseUrl}/${uid}`,
+      `${this.incomeUrl}`,
       { withCredentials: true },
     ).pipe(
-      map((res: ExpenseEntity[]) => {
+      map((res: IncomeEntity[]) => {
         return res.map(value => {
           return { ...value, createdOn: new Date(value.createdOn) };
         });
@@ -26,10 +26,10 @@ export class ExpenseService {
     );
   }
 
-  public createExpenseByUserId(uid: string, expenseData: ExpenseEntity): Observable<object> {
+  public createIncomeByUserId(incomeEntity: IncomeEntity): Observable<object> {
     return this.http.put(
-      `${this.expenseUrl}/${uid}`,
-      expenseData,
+      `${this.incomeUrl}`,
+      incomeEntity,
       { withCredentials: true },
     );
   }
