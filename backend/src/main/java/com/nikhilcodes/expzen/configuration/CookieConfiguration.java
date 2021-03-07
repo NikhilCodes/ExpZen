@@ -15,7 +15,7 @@ public class CookieConfiguration implements WebMvcConfigurer {
     public TomcatContextCustomizer sameSiteCookiesConfig() {
         return context -> {
             final Rfc6265CookieProcessor cookieProcessor = new Rfc6265CookieProcessor();
-//            cookieProcessor.setSameSiteCookies(SameSiteCookies.NONE.getValue());
+            cookieProcessor.setSameSiteCookies(SameSiteCookies.NONE.getValue()); // COMMENT IT OUT DURING LOCAL RUN
             context.setCookieProcessor(cookieProcessor);
         };
     }
