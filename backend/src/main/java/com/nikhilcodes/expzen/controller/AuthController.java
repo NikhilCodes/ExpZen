@@ -137,7 +137,9 @@ public class AuthController {
         jwtAtCookie = new Cookie(StringConstants.JWT_AT_COOKIE_NAME, newJwt);
         jwtAtCookie.setMaxAge(NumberConstants.JWT_AT_COOKIE_MAX_AGE);
         jwtAtCookie.setHttpOnly(true); // Makes it accessible by server only.
-        jwtAtCookie.setSecure(true);
+        if (serverProfile.equals("prod")) {
+            jwtAtCookie.setSecure(true);
+        }
         response.addCookie(jwtAtCookie);
     }
 }

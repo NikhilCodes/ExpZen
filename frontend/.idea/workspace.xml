@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="b7628681-e981-497e-8b45-0da485a9227f" name="Default Changelist" comment="Added Login Bg">
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/controller/IncomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/controller/IncomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/controller/AuthController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/modules/auth/auth.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/auth/auth.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/modules/home/home.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/home/home.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/home/home.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,6 +116,7 @@
       <workItem from="1615175910235" duration="18000" />
       <workItem from="1615218282907" duration="49000" />
       <workItem from="1615395988297" duration="3203000" />
+      <workItem from="1615436788583" duration="1324000" />
     </task>
     <task id="LOCAL-00001" summary="Added Login Bg">
       <created>1611894715944</created>

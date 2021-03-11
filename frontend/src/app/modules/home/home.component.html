@@ -142,7 +142,7 @@
         style="border-radius: 20px"
         mat-raised-button
         (click)="showAddFundsModal()"
-      >Add Funds
+      >Add Fund
       </button>
       <button
         color="primary"
@@ -155,7 +155,17 @@
   </div>
 
   <div class="tile-large" style="margin-bottom: 50px;">
-    <h2 style="font-weight: 600;margin-bottom: 0">Recent Transactions</h2>
+    <div style="display: flex; justify-content: space-between">
+      <h2 style="font-weight: 600;margin-bottom: 0">Recent Transactions</h2>
+      <div>
+        <div>
+          Fund
+        </div>
+        <div>
+          Expense
+        </div>
+      </div>
+    </div>
     <div>
       <table mat-table style="width: 100%" [dataSource]="dataSource">
         <ng-container matColumnDef="createdOn">

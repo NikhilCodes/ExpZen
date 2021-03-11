@@ -39,8 +39,10 @@ public interface AuthRepository extends JpaRepository<UserAuth, String> {
 
     Optional<UserAuth> findUserAuthByEmail(String email);
 
-    default String getRefreshTokenByEmail(String email) {
-        return findUserAuthByEmail(email).get().getRefreshToken();
+    Optional<UserAuth> findUserAuthByUserId(String uid);
+
+    default String getRefreshTokenByUid(String uid) {
+        return findUserAuthByUserId(uid).get().getRefreshToken();
     }
 
     default String getHashedPasswordByEmail(String email) {

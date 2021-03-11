@@ -64,20 +64,20 @@ public class AuthService {
         authSvcResp.setUserId(user.getUserId());
         authSvcResp.setAccessToken(jwtUtil.generateAccessToken(userDetails.getUid()));
         authSvcResp.setRefreshToken(
-          jwtUtil.generateRefreshToken(this.authRepository.getRefreshTokenByEmail(userDetails.getEmail()))
+          jwtUtil.generateRefreshToken(this.authRepository.getRefreshTokenByUid(userDetails.getUid()))
         );
 
         return authSvcResp;
     }
 
     public String refreshAuthentication(String expiredAccessToken, String refreshToken) {
-        String email;
+        String uid;
 
         if (jwtUtil.isTokenExpired(expiredAccessToken)) {
-            email = jwtUtil.extractSubject(expiredAccessToken);
-            final UserDTO userDetails = this.userService.getUserByEmail(email);
+            uid = jwtUtil.extractSubject(expiredAccessToken);
+            final UserDataResponse userDetails = this.userService.getUserDataByUid(uid);
             if (userDetails == null) {
-                throw new UsernameNotFoundException(email);
+                throw new UsernameNotFoundException(uid);
             }
 
             if (!jwtUtil.validateToken(refreshToken)) {
@@ -85,13 +85,13 @@ public class AuthService {
             }
 
             if (
-              !this.authRepository.getRefreshTokenByEmail(email)
+              !this.authRepository.getRefreshTokenByUid(uid)
                 .equals(jwtUtil.extractSubject(refreshToken))
             ) {
                 throw new PreAuthenticatedCredentialsNotFoundException("Refresh token mismatch!");
             }
 
-            return jwtUtil.generateAccessToken(userDetails.getUid());
+            return jwtUtil.generateAccessToken(userDetails.getUserId());
         } else {
             // We return the non-expired actually. Don't mind the name.
             return expiredAccessToken;

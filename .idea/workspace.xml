@@ -5,21 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae5c335f-8e8d-422c-af69-7c2c9905788f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/configuration/CookieConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/configuration/CookieConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/constants/NumberConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/constants/NumberConstants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/controller/IncomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/controller/IncomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/core/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/core/repository/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/core/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/core/service/AuthService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/core/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/core/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/shared/dto/AuthenticationDto/UserDataResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/shared/dto/AuthenticationDto/UserDataResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/modules/auth/auth.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/modules/auth/auth.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/modules/home/home.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/modules/home/home.component.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +81,7 @@
       <workItem from="1614421149728" duration="6876000" />
       <workItem from="1615218037982" duration="336000" />
       <workItem from="1615395972897" duration="4205000" />
-      <workItem from="1615436707307" duration="788000" />
+      <workItem from="1615436707307" duration="2939000" />
     </task>
     <servers />
   </component>
