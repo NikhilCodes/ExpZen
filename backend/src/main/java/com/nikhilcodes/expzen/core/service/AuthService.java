@@ -46,7 +46,7 @@ public class AuthService {
     public UserDataResponse createNewUser(String email, String password, String name) {
         String passwordHashed = this.passwordEncoder.encode(password);
         String userId = this.authRepository.createUser(email, passwordHashed, name);
-        return new UserDataResponse(name, email, userId);
+        return new UserDataResponse(name, userId);
     }
 
     public UserAuthServiceResponse authenticate(String email, String password) {
@@ -55,7 +55,7 @@ public class AuthService {
             throw new BadCredentialsException("INVALID_CREDENTIAL_EXCEPTION");
         }
 
-        final UserDTO userDetails = this.userService.loadUserByEmail(email);
+        final UserDTO userDetails = this.userService.getUserByEmail(email);
 
         UserAuthServiceResponse authSvcResp = new UserAuthServiceResponse();
         User user = this.userRepository.findUserByEmail(userDetails.getEmail());
@@ -75,7 +75,7 @@ public class AuthService {
 
         if (jwtUtil.isTokenExpired(expiredAccessToken)) {
             email = jwtUtil.extractSubject(expiredAccessToken);
-            final UserDTO userDetails = this.userService.loadUserByEmail(email);
+            final UserDTO userDetails = this.userService.getUserByEmail(email);
             if (userDetails == null) {
                 throw new UsernameNotFoundException(email);
             }

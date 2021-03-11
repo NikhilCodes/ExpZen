@@ -7,6 +7,8 @@ server:
     include-stacktrace: never
 
 spring:
+  profiles:
+    active: prod
   security:
     user:
       name: doesntmatter
@@ -19,6 +21,6 @@ spring:
     url: jdbc:mysql://mysqldb:3306/expzendb?useSSL=false&allowPublicKeyRetrieval=true
     username: nikhilcodes
     password: testtreasure321
-
+# -Dspring.profiles.active=dev
 jwt:
   secret: gf768oyut7867v58b7rybpolkl09t6266g

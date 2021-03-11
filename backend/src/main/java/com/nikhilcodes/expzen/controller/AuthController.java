@@ -9,6 +9,7 @@ import com.nikhilcodes.expzen.shared.dto.AuthenticationDto.UserDataResponse;
 import com.nikhilcodes.expzen.core.service.AuthService;
 import com.nikhilcodes.expzen.core.service.UserService;
 import com.nikhilcodes.expzen.shared.util.JwtUtil;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedCredentialsNotFoundException;
 import org.springframework.web.bind.annotation.*;
@@ -34,6 +35,9 @@ public class AuthController {
         this.jwtUtil = jwtUtil;
     }
 
+    @Value("${spring.profiles.active}")
+    private String serverProfile;
+
     @PostMapping()
     public UserDataResponse authenticate(@RequestBody AuthenticationBody requestBody, HttpServletResponse response) throws Exception {
         try {
@@ -45,21 +49,23 @@ public class AuthController {
             Cookie jwtAccessTokenCookie = new Cookie(StringConstants.JWT_AT_COOKIE_NAME, jwtAccessToken);
             jwtAccessTokenCookie.setMaxAge(NumberConstants.JWT_AT_COOKIE_MAX_AGE);
             jwtAccessTokenCookie.setHttpOnly(true); // Makes it accessible by server only.
-            jwtAccessTokenCookie.setSecure(true); // COMMENT IT OUT DURING LOCAL RUN
+            if (serverProfile.equals("prod")) {
+                jwtAccessTokenCookie.setSecure(true); // COMMENT IT OUT DURING LOCAL RUN
+            }
 
 
             Cookie refreshTokenCookie = new Cookie(StringConstants.RT_COOKIE_NAME, refreshToken);
             refreshTokenCookie.setMaxAge(NumberConstants.JWT_RT_COOKIE_MAX_AGE);
             refreshTokenCookie.setHttpOnly(true); // Makes it accessible by server only.
-            refreshTokenCookie.setSecure(true); // COMMENT IT OUT DURING LOCAL RUN
-
+            if (serverProfile.equals("prod")) {
+                refreshTokenCookie.setSecure(true); // COMMENT IT OUT DURING LOCAL RUN
+            }
 
             response.addCookie(jwtAccessTokenCookie);
             response.addCookie(refreshTokenCookie);
 
             return new UserDataResponse(
               userAuthResponse.getName(),
-              userAuthResponse.getEmail(),
               userAuthResponse.getUserId()
             );
         } catch (BadCredentialsException exception) {
@@ -97,13 +103,13 @@ public class AuthController {
           .orElse(null);
 
         if (jwtCookie == null) {
-            return new UserDataResponse(null, null, null);
+            return new UserDataResponse(null, null);
         }
 
         String jwt = jwtCookie.getValue();
-        String email = jwtUtil.extractSubject(jwt);
+        String uid = jwtUtil.extractSubject(jwt);
 
-        return userService.getUserDataByEmail(email);
+        return userService.getUserDataByUid(uid);
     }
 
     @PatchMapping()

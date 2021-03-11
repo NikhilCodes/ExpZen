@@ -5,13 +5,11 @@ import lombok.Data;
 @Data
 public class UserDataResponse {
     String name;
-    String email;
     String userId;
     String error;
 
-    public UserDataResponse(String name, String email, String userId) {
+    public UserDataResponse(String name, String userId) {
         this.name = name;
-        this.email = email;
         this.userId = userId;
     }
 

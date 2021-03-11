@@ -39,7 +39,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class AuthComponent {
   name = new FormControl('Nikhil Nayak');
   email = new FormControl('1928239@kiit.ac.in');
-  password = new FormControl('123456');
+  password = new FormControl('12345678');
   showPassword = false;
   minimumPasswordLength = 8;
 

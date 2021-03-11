@@ -27,8 +27,8 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public UserDTO loadUserByEmail(String email) throws UsernameNotFoundException {
-        // Here we consider email as username!
+
+    public UserDTO getUserByEmail(String email) throws UsernameNotFoundException {
         Optional<UserAuth> fetchedUserAuth = this.authRepository.findUserAuthByEmail(email);
         if (!fetchedUserAuth.isPresent()) {
             return null;
@@ -42,11 +42,10 @@ public class UserService {
         return new UserDTO(fetchedUser.getUserId(), email, fetchedUser.getName(), fetchedUser.getRoleType());
     }
 
-    public UserDataResponse getUserDataByEmail(String email) {
-        User user = userRepository.findUserByEmail(email);
+    public UserDataResponse getUserDataByUid(String uid) {
+        User user = userRepository.findByUserId(uid);
         return new UserDataResponse(
           user.getName(),
-          email,
           user.getUserId()
         );
     }
