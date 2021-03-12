@@ -38,6 +38,19 @@ public class ExpenseService {
         Expense expense = new Expense(expenseDTO);
         expense.setUserId(uid);
 
-        expenseRepository.saveAndFlush(expense);
+        this.expenseRepository.saveAndFlush(expense);
+    }
+
+    public Float getTotalExpense(String uid) {
+        Float value = this.expenseRepository.getTotalExpenseValueByUserId(uid);
+        if (value != null) {
+            return value;
+        }
+
+        return 0F;
+    }
+
+    public Float getMonthlyExpense(String uid) {
+        return this.expenseRepository.getTotalMonthlyExpenseValueByUserId(uid);
     }
 }

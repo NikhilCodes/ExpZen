@@ -8,6 +8,9 @@ import { ExpenseTypes } from '../../shared/types/expense.types';
 import { FormControl } from '@angular/forms';
 import { IncomeTypes } from '../../shared/types/income.types';
 import { IncomeService } from '../../core/service/income.service';
+import { IncomeEntity } from '../../shared/interface/income.interface';
+import { BalanceMonthlyExpenseDue } from '../../shared/interface/misc.interface';
+import { MiscService } from '../../core/service/misc.service';
 
 @Component({
   selector: 'app-home',
@@ -15,14 +18,17 @@ import { IncomeService } from '../../core/service/income.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements AfterViewInit {
-  income: number;
-  expense: number;
+  balance: number;
+  monthlyExpense: number;
   due: number;
 
-  displayedColumns: string[] = ['createdOn', 'value', 'expenseType', 'description'];
+  displayedIncomeColumns: string[] = ['createdOn', 'value', 'incomeType'];
+  displayedExpenseColumns: string[] = ['createdOn', 'value', 'expenseType', 'description'];
+
   incomeTypesList = Object.values(IncomeTypes);
   expenseTypesList = Object.values(ExpenseTypes);
 
+  isLoadingFundsData = true;
   isAddFundsModalVisible = false;
 
   isLoadingExpenseData = true;
@@ -34,27 +40,47 @@ export class HomeComponent implements AfterViewInit {
   formCreatedOn = new FormControl(new Date(Date.now()));
   formCategory = new FormControl(null);
 
-  dataSource = new MatTableDataSource<ExpenseEntity>([]);
+  dataSourceExpense = new MatTableDataSource<ExpenseEntity>([]);
+  dataSourceFunds = new MatTableDataSource<IncomeEntity>([]);
 
   @ViewChild(MatPaginator)
-  paginator: MatPaginator;
+  paginatorExpense: MatPaginator;
 
-  constructor(private incomeService: IncomeService, private expenseService: ExpenseService, private authService: AuthService) {
-    this.income = 8000;
-    this.expense = 0;
-    this.due = 0;
-  }
+  @ViewChild(MatPaginator)
+  paginatorFunds: MatPaginator;
+
+  dataTableViewMode = 1; // 1 for expense and 0 for funds added
+
+  constructor(private incomeService: IncomeService, private expenseService: ExpenseService, private authService: AuthService, private miscService: MiscService) {}
 
   ngAfterViewInit(): void {
+    this.miscService.getBalanceMonthlyExpenseAndDue()
+      .subscribe((value: BalanceMonthlyExpenseDue) => {
+        this.balance = value.balance;
+        this.monthlyExpense = value.monthlyExpense;
+        this.due = value.due;
+      });
+
     this.loadAllExpensesForUser();
-    this.dataSource.paginator = this.paginator;
+    this.dataSourceExpense.paginator = this.paginatorExpense;
+
+    this.loadAllFundsForUser();
+    this.dataSourceFunds.paginator = this.paginatorFunds;
   }
 
   loadAllExpensesForUser(): void {
     this.expenseService.findAllExpensesByUserId(this.authService.user.userId)
       .subscribe((value) => {
         this.isLoadingExpenseData = false;
-        this.dataSource.data = value;
+        this.dataSourceExpense.data = value;
+      });
+  }
+
+  loadAllFundsForUser(): void {
+    this.incomeService.findAllIncomesByUserId()
+      .subscribe((value) => {
+        this.isLoadingFundsData = false;
+        this.dataSourceFunds.data = value;
       });
   }
 
@@ -105,6 +131,7 @@ export class HomeComponent implements AfterViewInit {
       createdOn: this.formCreatedOn.value,
     }).subscribe(_ => {
       this.clearForm();
+      this.loadAllFundsForUser();
       this.refreshBalance();
       this.closeAddFundsModal();
     });

@@ -38,3 +38,22 @@
   display: flex;
   flex-direction: column;
 }
+
+.pill-half {
+  height: 20px;
+  width: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #5b32cc;
+  font-weight: 500;
+  border: 2px solid #5b32cc;
+  transition-duration: 300ms;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.pill-enabled {
+  color: #fff;
+  background-color: #5b32cc;
+}
