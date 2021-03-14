@@ -1,8 +1,10 @@
 package com.nikhilcodes.expzen.controller;
 
+import com.nikhilcodes.expzen.constants.StringConstants;
 import com.nikhilcodes.expzen.shared.dto.AuthenticationDto.UserRegBody;
 import com.nikhilcodes.expzen.shared.dto.ExpenseDTO;
 import com.nikhilcodes.expzen.core.service.ExpenseService;
+import com.nikhilcodes.expzen.shared.util.JwtUtil;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,18 +14,22 @@ import java.util.List;
 @RequestMapping("/expense")
 public class ExpenseController {
     private final ExpenseService expenseService;
+    private final JwtUtil jwtUtil;
 
-    public ExpenseController(ExpenseService expenseService) {
+    public ExpenseController(ExpenseService expenseService, JwtUtil jwtUtil) {
         this.expenseService = expenseService;
+        this.jwtUtil = jwtUtil;
     }
 
-    @GetMapping("/{userId}")
-    public List<ExpenseDTO> getExpensesByUser(@PathVariable("userId") String uid) {
+    @GetMapping()
+    public List<ExpenseDTO> getExpensesByUser(@CookieValue(StringConstants.JWT_AT_COOKIE_NAME) String accessToken) {
+        String uid = this.jwtUtil.extractSubject(accessToken);
         return this.expenseService.getExpenseByUser(uid);
     }
 
-    @PutMapping("/{userId}")
-    public void addExpenseByUser(@PathVariable("userId") String uid, @RequestBody ExpenseDTO expenseDTO) {
+    @PutMapping()
+    public void addExpenseByUser(@CookieValue(StringConstants.JWT_AT_COOKIE_NAME) String accessToken, @RequestBody ExpenseDTO expenseDTO) {
+        String uid = this.jwtUtil.extractSubject(accessToken);
         expenseService.addExpenseByUser(uid, expenseDTO);
     }
 }

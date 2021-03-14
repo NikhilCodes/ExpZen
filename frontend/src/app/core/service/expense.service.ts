@@ -13,9 +13,9 @@ export class ExpenseService {
 
   constructor(private http: HttpClient) { }
 
-  public findAllExpensesByUserId(uid: string): Observable<ExpenseEntity[]> {
+  public findAllExpensesByUserId(): Observable<ExpenseEntity[]> {
     return this.http.get(
-      `${this.expenseUrl}/${uid}`,
+      `${this.expenseUrl}`,
       { withCredentials: true },
     ).pipe(
       map((res: ExpenseEntity[]) => {
@@ -26,9 +26,9 @@ export class ExpenseService {
     );
   }
 
-  public createExpenseByUserId(uid: string, expenseData: ExpenseEntity): Observable<object> {
+  public createExpenseByUserId(expenseData: ExpenseEntity): Observable<object> {
     return this.http.put(
-      `${this.expenseUrl}/${uid}`,
+      `${this.expenseUrl}`,
       expenseData,
       { withCredentials: true },
     );

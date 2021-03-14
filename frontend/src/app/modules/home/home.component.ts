@@ -1,9 +1,8 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { ExpenseEntity } from '../../shared/interface/expense.interface';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ExpenseService } from '../../core/service/expense.service';
-import { AuthService } from '../../core/service/auth.service';
 import { ExpenseTypes } from '../../shared/types/expense.types';
 import { FormControl } from '@angular/forms';
 import { IncomeTypes } from '../../shared/types/income.types';
@@ -51,7 +50,11 @@ export class HomeComponent implements AfterViewInit {
 
   dataTableViewMode = 1; // 1 for expense and 0 for funds added
 
-  constructor(private incomeService: IncomeService, private expenseService: ExpenseService, private authService: AuthService, private miscService: MiscService) {}
+  constructor(
+    private incomeService: IncomeService,
+    private expenseService: ExpenseService,
+    private miscService: MiscService,
+  ) {}
 
   ngAfterViewInit(): void {
     this.miscService.getBalanceMonthlyExpenseAndDue()
@@ -69,7 +72,7 @@ export class HomeComponent implements AfterViewInit {
   }
 
   loadAllExpensesForUser(): void {
-    this.expenseService.findAllExpensesByUserId(this.authService.user.userId)
+    this.expenseService.findAllExpensesByUserId()
       .subscribe((value) => {
         this.isLoadingExpenseData = false;
         this.dataSourceExpense.data = value;
@@ -108,7 +111,7 @@ export class HomeComponent implements AfterViewInit {
   }
 
   onSubmitCreateExpenseForm(): void {
-    this.expenseService.createExpenseByUserId(this.authService.user.userId, {
+    this.expenseService.createExpenseByUserId({
       value: this.formValue.value,
       description: this.formDescription.value,
       expenseType: this.formCategory.value,
