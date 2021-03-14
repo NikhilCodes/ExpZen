@@ -28,9 +28,19 @@ CREATE TABLE expense
 CREATE TABLE income
 (
     income_id          VARCHAR(36) PRIMARY KEY,
-    user_id            VARCHAR(36)                                    NOT NULL,
+    user_id            VARCHAR(36)                                      NOT NULL,
     income_type        ENUM ('PAYCHECK', 'REFUND', 'INTEREST', 'BONUS') NOT NULL,
-    value              DECIMAL(10, 2)                                 NOT NULL NOT NULL,
+    value              DECIMAL(10, 2)                                   NOT NULL,
+    created_on         DATE,
+    creation_timestamp TIMESTAMP
+);
+
+CREATE TABLE due
+(
+    due_id             VARCHAR(36) PRIMARY KEY,
+    user_id            VARCHAR(36)    NOT NULL,
+    description        VARCHAR(100)   NOT NULL,
+    value              DECIMAL(10, 2) NOT NULL,
     created_on         DATE,
     creation_timestamp TIMESTAMP
 );

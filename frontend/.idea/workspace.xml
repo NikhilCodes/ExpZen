@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b7628681-e981-497e-8b45-0da485a9227f" name="Default Changelist" comment="Added Login Bg">
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/controller/DueController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/core/repository/DueRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/core/service/DueService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/model/Due.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/shared/dto/DueDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/controller/ExpenseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/controller/ExpenseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/resources/db/migration/V1__init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/resources/db/migration/V1__init.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/service/expense.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/service/expense.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/modules/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/home/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/types/expense.types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/types/expense.types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,6 +127,7 @@
       <workItem from="1615473005611" duration="146000" />
       <workItem from="1615610676054" duration="108000" />
       <workItem from="1615708539747" duration="561000" />
+      <workItem from="1615728352270" duration="791000" />
     </task>
     <task id="LOCAL-00001" summary="Added Login Bg">
       <created>1611894715944</created>

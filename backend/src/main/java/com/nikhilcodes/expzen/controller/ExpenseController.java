@@ -30,6 +30,6 @@ public class ExpenseController {
     @PutMapping()
     public void addExpenseByUser(@CookieValue(StringConstants.JWT_AT_COOKIE_NAME) String accessToken, @RequestBody ExpenseDTO expenseDTO) {
         String uid = this.jwtUtil.extractSubject(accessToken);
-        expenseService.addExpenseByUser(uid, expenseDTO);
+        this.expenseService.addExpenseByUser(uid, expenseDTO);
     }
 }
