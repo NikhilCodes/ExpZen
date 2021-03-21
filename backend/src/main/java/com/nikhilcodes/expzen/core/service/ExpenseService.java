@@ -51,6 +51,11 @@ public class ExpenseService {
     }
 
     public Float getMonthlyExpense(String uid) {
-        return this.expenseRepository.getTotalMonthlyExpenseValueByUserId(uid);
+        Float value = this.expenseRepository.getTotalMonthlyExpenseValueByUserId(uid);
+        if (value != null) {
+            return value;
+        }
+
+        return 0F;
     }
 }

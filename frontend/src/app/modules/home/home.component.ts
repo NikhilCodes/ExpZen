@@ -10,6 +10,8 @@ import { IncomeService } from '../../core/service/income.service';
 import { IncomeEntity } from '../../shared/interface/income.interface';
 import { BalanceMonthlyExpenseDue } from '../../shared/interface/misc.interface';
 import { MiscService } from '../../core/service/misc.service';
+import { DueService } from '../../core/service/due.service';
+import { DueEntity } from '../../shared/interface/due.interface';
 
 @Component({
   selector: 'app-home',
@@ -23,6 +25,7 @@ export class HomeComponent implements AfterViewInit {
 
   displayedIncomeColumns: string[] = ['createdOn', 'value', 'incomeType'];
   displayedExpenseColumns: string[] = ['createdOn', 'value', 'expenseType', 'description'];
+  displayedDueColumns: string[] = ['createdOn', 'value', 'description'];
 
   incomeTypesList = Object.values(IncomeTypes);
   expenseTypesList = Object.values(ExpenseTypes);
@@ -33,6 +36,9 @@ export class HomeComponent implements AfterViewInit {
   isLoadingExpenseData = true;
   isAddExpenseModalVisible = false;
 
+  isLoadingDueData = true;
+  isAddDueModalVisible = false;
+
   // Form Value
   formValue = new FormControl(null);
   formDescription = new FormControl('');
@@ -41,18 +47,23 @@ export class HomeComponent implements AfterViewInit {
 
   dataSourceExpense = new MatTableDataSource<ExpenseEntity>([]);
   dataSourceFunds = new MatTableDataSource<IncomeEntity>([]);
+  dataSourceDues = new MatTableDataSource<DueEntity>([]);
 
-  @ViewChild(MatPaginator)
+  @ViewChild('expenses-paginator')
   paginatorExpense: MatPaginator;
 
-  @ViewChild(MatPaginator)
+  @ViewChild('funds-paginator')
   paginatorFunds: MatPaginator;
 
-  dataTableViewMode = 1; // 1 for expense and 0 for funds added
+  @ViewChild('dues-paginator')
+  paginatorDues: MatPaginator;
+
+  dataTableViewMode = 1; // 2 for dues, 1 for expense and 0 for funds added
 
   constructor(
     private incomeService: IncomeService,
     private expenseService: ExpenseService,
+    private dueService: DueService,
     private miscService: MiscService,
   ) {}
 
@@ -69,10 +80,13 @@ export class HomeComponent implements AfterViewInit {
 
     this.loadAllFundsForUser();
     this.dataSourceFunds.paginator = this.paginatorFunds;
+
+    this.loadAllDuesForUser();
+    this.dataSourceDues.paginator = this.paginatorDues;
   }
 
   loadAllExpensesForUser(): void {
-    this.expenseService.findAllExpensesByUserId()
+    this.expenseService.findAllExpenses()
       .subscribe((value) => {
         this.isLoadingExpenseData = false;
         this.dataSourceExpense.data = value;
@@ -80,10 +94,18 @@ export class HomeComponent implements AfterViewInit {
   }
 
   loadAllFundsForUser(): void {
-    this.incomeService.findAllIncomesByUserId()
+    this.incomeService.findAllIncomes()
       .subscribe((value) => {
         this.isLoadingFundsData = false;
         this.dataSourceFunds.data = value;
+      });
+  }
+
+  loadAllDuesForUser(): void {
+    this.dueService.findAllDues()
+      .subscribe((value) => {
+        this.isLoadingDueData = false;
+        this.dataSourceDues.data = value;
       });
   }
 
@@ -103,6 +125,14 @@ export class HomeComponent implements AfterViewInit {
     this.isAddExpenseModalVisible = false;
   }
 
+  showAddDueModal(): void {
+    this.isAddDueModalVisible = true;
+  }
+
+  closeAddDueModal(): void {
+    this.isAddDueModalVisible = false;
+  }
+
   clearForm(): void {
     this.formValue.setValue(null);
     this.formDescription.setValue('');
@@ -111,7 +141,7 @@ export class HomeComponent implements AfterViewInit {
   }
 
   onSubmitCreateExpenseForm(): void {
-    this.expenseService.createExpenseByUserId({
+    this.expenseService.createExpense({
       value: this.formValue.value,
       description: this.formDescription.value,
       expenseType: this.formCategory.value,
@@ -123,21 +153,33 @@ export class HomeComponent implements AfterViewInit {
     });
   }
 
-  refreshBalance(): void {
-
+  onSubmitCreateDueForm(): void {
+    this.dueService.createDue({
+      value: this.formValue.value,
+      description: this.formDescription.value,
+      createdOn: this.formCreatedOn.value,
+    }).subscribe(_ => {
+      this.clearForm();
+      this.loadAllDuesForUser();
+      this.refreshBalance();
+      this.closeAddDueModal();
+    });
   }
 
   onSubmitCreateFundsForm(): void {
-    this.incomeService.createIncomeByUserId({
+    this.incomeService.createIncome({
       value: this.formValue.value,
       incomeType: this.formCategory.value,
       createdOn: this.formCreatedOn.value,
     }).subscribe(_ => {
       this.clearForm();
       this.loadAllFundsForUser();
-      this.refreshBalance();
       this.closeAddFundsModal();
     });
+  }
+
+  refreshBalance(): void {
+
   }
 
   getNumberAsPrice(num: number): string {

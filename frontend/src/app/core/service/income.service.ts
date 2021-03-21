@@ -13,7 +13,7 @@ export class IncomeService {
 
   constructor(private http: HttpClient) { }
 
-  public findAllIncomesByUserId(): Observable<IncomeEntity[]> {
+  public findAllIncomes(): Observable<IncomeEntity[]> {
     return this.http.get(
       `${this.incomeUrl}`,
       { withCredentials: true },
@@ -26,7 +26,7 @@ export class IncomeService {
     );
   }
 
-  public createIncomeByUserId(incomeEntity: IncomeEntity): Observable<object> {
+  public createIncome(incomeEntity: IncomeEntity): Observable<object> {
     return this.http.put(
       `${this.incomeUrl}`,
       incomeEntity,
