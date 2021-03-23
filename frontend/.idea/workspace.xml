@@ -2,18 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b7628681-e981-497e-8b45-0da485a9227f" name="Default Changelist" comment="Added Login Bg">
-      <change afterPath="$PROJECT_DIR$/src/app/core/service/due.service.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/core/service/due.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/shared/interface/due.interface.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/core/service/ExpenseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/core/service/ExpenseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/core/service/MiscService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/core/service/MiscService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/service/expense.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/service/expense.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/service/income.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/service/income.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/modules/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/home/home.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/modules/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/home/home.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/modal/modal.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/modal/modal.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/home/home.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/home/home.component.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +128,9 @@
       <workItem from="1615742505348" duration="600000" />
       <workItem from="1615787613971" duration="22000" />
       <workItem from="1616347444319" duration="6163000" />
-      <workItem from="1616354345738" duration="1231000" />
+      <workItem from="1616354345738" duration="1297000" />
+      <workItem from="1616391380708" duration="13000" />
+      <workItem from="1616525487968" duration="4398000" />
     </task>
     <task id="LOCAL-00001" summary="Added Login Bg">
       <created>1611894715944</created>

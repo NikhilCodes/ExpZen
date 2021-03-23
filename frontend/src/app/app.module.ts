@@ -24,6 +24,7 @@ import { ModalComponent } from './components/modal/modal.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { MatSelectModule } from '@angular/material/select';
     HomeComponent,
     AuthComponent,
     ModalComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

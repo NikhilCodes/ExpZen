@@ -5,18 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae5c335f-8e8d-422c-af69-7c2c9905788f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/core/service/due.service.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/core/service/due.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/shared/interface/due.interface.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/core/service/ExpenseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/core/service/ExpenseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/core/service/MiscService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/core/service/MiscService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/service/expense.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/service/expense.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/core/service/income.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/core/service/income.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/modules/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/modules/home/home.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/modules/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/modules/home/home.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +85,8 @@
       <workItem from="1615728363171" duration="4327000" />
       <workItem from="1615742518230" duration="601000" />
       <workItem from="1616347178296" duration="3168000" />
-      <workItem from="1616354364596" duration="339000" />
+      <workItem from="1616354364596" duration="774000" />
+      <workItem from="1616525430085" duration="611000" />
     </task>
     <servers />
   </component>
