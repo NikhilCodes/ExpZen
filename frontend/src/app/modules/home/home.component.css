@@ -7,6 +7,13 @@
   min-height: 100%;
 }
 
+.sub-root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
 .tile-large {
   font-family: Quicksand, sans-serif !important;
   box-shadow: 0 0 30px #00000022;

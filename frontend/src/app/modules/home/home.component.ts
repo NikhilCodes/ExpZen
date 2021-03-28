@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
 import { ExpenseEntity } from '../../shared/interface/expense.interface';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -19,6 +19,9 @@ import { DueEntity } from '../../shared/interface/due.interface';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements AfterViewInit {
+  // @Input()
+  // viewMode: boolean;
+
   balance: number;
   monthlyExpense: number;
   due: number;
@@ -49,13 +52,13 @@ export class HomeComponent implements AfterViewInit {
   dataSourceFunds = new MatTableDataSource<IncomeEntity>([]);
   dataSourceDues = new MatTableDataSource<DueEntity>([]);
 
-  @ViewChild('expenses-paginator')
+  @ViewChild(MatPaginator, { static: true })
   paginatorExpense: MatPaginator;
 
-  @ViewChild('funds-paginator')
+  @ViewChild(MatPaginator, { static: true })
   paginatorFunds: MatPaginator;
 
-  @ViewChild('dues-paginator')
+  @ViewChild(MatPaginator, { static: true })
   paginatorDues: MatPaginator;
 
   dataTableViewMode = 1; // 2 for dues, 1 for expense and 0 for funds added
@@ -75,14 +78,14 @@ export class HomeComponent implements AfterViewInit {
         this.due = value.due;
       });
 
-    this.loadAllExpensesForUser();
-    this.dataSourceExpense.paginator = this.paginatorExpense;
-
+    // NOTE: The order followed below for `Loading Data` matters, as it determines the paginator initial values.
     this.loadAllFundsForUser();
-    this.dataSourceFunds.paginator = this.paginatorFunds;
-
     this.loadAllDuesForUser();
+    this.loadAllExpensesForUser();
+
+    this.dataSourceFunds.paginator = this.paginatorFunds;
     this.dataSourceDues.paginator = this.paginatorDues;
+    this.dataSourceExpense.paginator = this.paginatorExpense;
   }
 
   loadAllExpensesForUser(): void {
@@ -184,7 +187,11 @@ export class HomeComponent implements AfterViewInit {
 
   getNumberAsPrice(num: number): string {
     let price = '';
-
+    let isNeg = false;
+    if (num < 0) {
+      isNeg = true;
+      num = -num;
+    }
     if (num === 0) {
       return '0';
     }
@@ -198,6 +205,6 @@ export class HomeComponent implements AfterViewInit {
       num = Math.floor(num / 10);
       count++;
     }
-    return price;
+    return (isNeg ? '-' : '') + price;
   }
 }

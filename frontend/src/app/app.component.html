@@ -1,5 +1,5 @@
+<app-sidebar *ngIf="authStatus!=='LOADING'"></app-sidebar>
 <div *ngIf="authStatus==='LOADING'" style="width: 100%;height: 100%;display: flex;justify-content: center;align-items: center">
   <mat-spinner color="primary" diameter="50"></mat-spinner>
 </div>
-<app-header></app-header>
 <router-outlet *ngIf="authStatus!=='LOADING'"></router-outlet>

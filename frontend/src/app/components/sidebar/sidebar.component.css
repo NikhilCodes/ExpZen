@@ -1,0 +1,15 @@
+.sidebar-root {
+  position: fixed;
+  min-height: 100%;
+  padding: 0 22px;
+  background: #5b32cc;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-root > .first-column > * {
+  margin-top: 40px;
+}
