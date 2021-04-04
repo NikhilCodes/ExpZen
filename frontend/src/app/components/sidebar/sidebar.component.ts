@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class SidebarComponent implements OnInit {
 
   dashboardPageUrl = '/';
-  statisticsPageUrl = '/statistics';
+  analyticsPageUrl = '/analytics';
   userSettingsPageUrl = '/settings';
 
   constructor(private router: Router) {}
@@ -21,8 +21,8 @@ export class SidebarComponent implements OnInit {
     this.router.navigate([this.dashboardPageUrl]);
   }
 
-  navigateToStatistics(): void {
-    this.router.navigate([this.statisticsPageUrl]);
+  navigateToAnalytics(): void {
+    this.router.navigate([this.analyticsPageUrl]);
   }
 
   navigateToUserSettings(): void {

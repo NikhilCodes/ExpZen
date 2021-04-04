@@ -5,10 +5,12 @@ import { HomeComponent } from './modules/home/home.component';
 import { AuthGuard } from './core/guard/auth.guard';
 import { LoggedInGuard } from './core/guard/logged-in.guard';
 import { SettingsComponent } from './modules/settings/settings.component';
+import { AnalyticsComponent } from './modules/analytics/analytics.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: AuthComponent, canActivate: [LoggedInGuard] },
+  { path: 'analytics', component: AnalyticsComponent, canActivate: [AuthGuard] },
   { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
 ];
 

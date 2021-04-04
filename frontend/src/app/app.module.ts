@@ -24,6 +24,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SettingsComponent } from './modules/settings/settings.component';
+import { AnalyticsComponent } from './modules/analytics/analytics.component';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { SettingsComponent } from './modules/settings/settings.component';
     ModalComponent,
     SidebarComponent,
     SettingsComponent,
+    AnalyticsComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,12 +55,20 @@ import { SettingsComponent } from './modules/settings/settings.component';
     ReactiveFormsModule,
     HttpClientModule,
     MatSelectModule,
+    NgxEchartsModule.forRoot({
+      /**
+       * This will import all modules from echarts.
+       * If you only need custom modules,
+       * please refer to [Custom Build] section.
+       */
+      echarts: () => import('echarts'),
+    }),
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,
-      multi: true
+      multi: true,
     },
   ],
   bootstrap: [AppComponent],
