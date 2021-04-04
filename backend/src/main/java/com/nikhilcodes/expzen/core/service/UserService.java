@@ -1,5 +1,6 @@
 package com.nikhilcodes.expzen.core.service;
 
+import com.nikhilcodes.expzen.core.exceptions.UserAuthNotFoundException;
 import com.nikhilcodes.expzen.shared.dto.AuthenticationDto.UserDataResponse;
 import com.nikhilcodes.expzen.model.User;
 import com.nikhilcodes.expzen.model.UserAuth;
@@ -42,11 +43,17 @@ public class UserService {
         return new UserDTO(fetchedUser.getUserId(), email, fetchedUser.getName(), fetchedUser.getRoleType());
     }
 
-    public UserDataResponse getUserDataByUid(String uid) {
+    public UserDataResponse getUserDataByUid(String uid) throws UserAuthNotFoundException {
         User user = userRepository.findByUserId(uid);
+        Optional<UserAuth> userAuth = authRepository.findUserAuthByUserId(uid);
+
+        if (!userAuth.isPresent()) {
+            throw new UserAuthNotFoundException(uid);
+        }
         return new UserDataResponse(
           user.getName(),
-          user.getUserId()
+          user.getUserId(),
+          userAuth.get().getEmail()
         );
     }
 }

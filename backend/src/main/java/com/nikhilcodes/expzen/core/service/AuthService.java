@@ -1,5 +1,6 @@
 package com.nikhilcodes.expzen.core.service;
 
+import com.nikhilcodes.expzen.core.exceptions.UserAuthNotFoundException;
 import com.nikhilcodes.expzen.shared.dto.AuthenticationDto.UserAuthServiceResponse;
 import com.nikhilcodes.expzen.model.User;
 import com.nikhilcodes.expzen.core.repository.AuthRepository;
@@ -46,7 +47,7 @@ public class AuthService {
     public UserDataResponse createNewUser(String email, String password, String name) {
         String passwordHashed = this.passwordEncoder.encode(password);
         String userId = this.authRepository.createUser(email, passwordHashed, name);
-        return new UserDataResponse(name, userId);
+        return new UserDataResponse(name, userId, email);
     }
 
     public UserAuthServiceResponse authenticate(String email, String password) {
@@ -70,7 +71,7 @@ public class AuthService {
         return authSvcResp;
     }
 
-    public String refreshAuthentication(String expiredAccessToken, String refreshToken) {
+    public String refreshAuthentication(String expiredAccessToken, String refreshToken) throws UserAuthNotFoundException {
         String uid;
 
         if (jwtUtil.isTokenExpired(expiredAccessToken)) {

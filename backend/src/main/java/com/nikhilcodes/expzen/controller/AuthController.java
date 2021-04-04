@@ -2,6 +2,7 @@ package com.nikhilcodes.expzen.controller;
 
 import com.nikhilcodes.expzen.constants.NumberConstants;
 import com.nikhilcodes.expzen.constants.StringConstants;
+import com.nikhilcodes.expzen.core.exceptions.UserAuthNotFoundException;
 import com.nikhilcodes.expzen.shared.dto.AuthenticationDto.AuthenticationBody;
 import com.nikhilcodes.expzen.shared.dto.AuthenticationDto.UserAuthServiceResponse;
 import com.nikhilcodes.expzen.shared.dto.AuthenticationDto.UserRegBody;
@@ -66,7 +67,8 @@ public class AuthController {
 
             return new UserDataResponse(
               userAuthResponse.getName(),
-              userAuthResponse.getUserId()
+              userAuthResponse.getUserId(),
+              userAuthResponse.getEmail()
             );
         } catch (BadCredentialsException exception) {
             response.sendError(403, exception.getMessage());
@@ -92,7 +94,7 @@ public class AuthController {
     }
 
     @PostMapping("auto")
-    public UserDataResponse autoAuthenticate(HttpServletRequest httpServletRequest) {
+    public UserDataResponse autoAuthenticate(HttpServletRequest httpServletRequest) throws UserAuthNotFoundException {
         Cookie[] cookies = httpServletRequest.getCookies();
         if (cookies == null) {
             cookies = new Cookie[]{};
@@ -103,7 +105,7 @@ public class AuthController {
           .orElse(null);
 
         if (jwtCookie == null) {
-            return new UserDataResponse(null, null);
+            return new UserDataResponse(null, null, null);
         }
 
         String jwt = jwtCookie.getValue();
@@ -113,7 +115,7 @@ public class AuthController {
     }
 
     @PatchMapping()
-    public void setNewAccessToken(HttpServletRequest request, HttpServletResponse response) {
+    public void setNewAccessToken(HttpServletRequest request, HttpServletResponse response) throws UserAuthNotFoundException {
         Cookie[] cookies = request.getCookies();
         if (cookies == null) {
             throw new PreAuthenticatedCredentialsNotFoundException("You need to authenticate!");
