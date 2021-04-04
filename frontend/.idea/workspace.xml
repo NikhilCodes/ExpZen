@@ -2,14 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b7628681-e981-497e-8b45-0da485a9227f" name="Default Changelist" comment="Added Login Bg">
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/modules/settings/settings.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/modules/settings/settings.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/modules/settings/settings.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/modules/settings/settings.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/sidebar/sidebar.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/sidebar/sidebar.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/components/sidebar/sidebar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/sidebar/sidebar.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/components/sidebar/sidebar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/sidebar/sidebar.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/modules/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/home/home.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/modules/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/home/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/settings/settings.module.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +137,7 @@
       <workItem from="1616559490452" duration="81000" />
       <workItem from="1616933999787" duration="17896000" />
       <workItem from="1617014161673" duration="11000" />
-      <workItem from="1617513993088" duration="4148000" />
+      <workItem from="1617513993088" duration="7043000" />
     </task>
     <task id="LOCAL-00001" summary="Added Login Bg">
       <created>1611894715944</created>

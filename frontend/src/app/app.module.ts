@@ -23,6 +23,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { SettingsComponent } from './modules/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     AuthComponent,
     ModalComponent,
     SidebarComponent,
+    SettingsComponent,
   ],
   imports: [
     BrowserModule,
