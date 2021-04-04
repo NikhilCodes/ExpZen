@@ -171,12 +171,13 @@
 </div>
 
 <div class="root">
+  <img
+    src="assets/default-monochrome.svg"
+    height="50px"
+    style="margin-top: 50px"
+  />
+
   <div class="sub-root">
-    <img
-      src="assets/default-monochrome.svg"
-      height="50px"
-      style="margin-top: 50px"
-    />
     <div class="tile-large">
       <h1 style="font-weight: 600;margin-bottom: 0">Dashboard</h1>
       <small class="grey-text">Check all your monthly financial info</small>
@@ -324,6 +325,7 @@
         </div>
         <mat-paginator
           [pageSizeOptions]="[5, 10, 20]"
+          [pageSize]="5"
           [length]="dataTableViewMode===0?dataSourceFunds.data.length:dataTableViewMode===1?dataSourceExpense.data.length:dataSourceDues.data.length"
         ></mat-paginator>
       </div>
