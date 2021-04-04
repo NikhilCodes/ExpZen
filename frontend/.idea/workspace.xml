@@ -2,16 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b7628681-e981-497e-8b45-0da485a9227f" name="Default Changelist" comment="Added Login Bg">
-      <change afterPath="$PROJECT_DIR$/src/app/modules/settings/settings.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/modules/settings/settings.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/modules/settings/settings.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/modules/settings/settings.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/core/repository/AuthRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/core/repository/AuthRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/core/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/core/service/AuthService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/components/sidebar/sidebar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/sidebar/sidebar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/sidebar/sidebar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/sidebar/sidebar.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/modules/settings/settings.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/interceptor/jwt.interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/interceptor/jwt.interceptor.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/service/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/service/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/settings/settings.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/settings/settings.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/settings/settings.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/settings/settings.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/settings/settings.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/settings/settings.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +29,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1nduyYeFkGk4EICO4XUS8ECoun3" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -137,7 +147,8 @@
       <workItem from="1616559490452" duration="81000" />
       <workItem from="1616933999787" duration="17896000" />
       <workItem from="1617014161673" duration="11000" />
-      <workItem from="1617513993088" duration="7043000" />
+      <workItem from="1617513993088" duration="11478000" />
+      <workItem from="1617543661471" duration="7455000" />
     </task>
     <task id="LOCAL-00001" summary="Added Login Bg">
       <created>1611894715944</created>

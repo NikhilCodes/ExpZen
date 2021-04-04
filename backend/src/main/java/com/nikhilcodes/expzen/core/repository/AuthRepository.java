@@ -41,6 +41,11 @@ public interface AuthRepository extends JpaRepository<UserAuth, String> {
 
     Optional<UserAuth> findUserAuthByUserId(String uid);
 
+    @Transactional
+    @Modifying
+    @Query("update UserAuth auth set auth.email=:newEmail where auth.userId=:uid")
+    void updateEmail(@Param("newEmail") String newEmail, @Param("uid") String userId);
+
     default String getRefreshTokenByUid(String uid) {
         return findUserAuthByUserId(uid).get().getRefreshToken();
     }

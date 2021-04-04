@@ -13,7 +13,7 @@ export class JwtInterceptor implements HttpInterceptor {
       this.authService.refreshAccessToken();
       return next.handle(req);
     } else {
-      this.authService.logout();
+      this.authService.temporaryLogout();
       return throwError(err);
     }
   }

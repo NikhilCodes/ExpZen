@@ -40,6 +40,16 @@ public class JwtFilter extends OncePerRequestFilter {
           .findFirst()
           .orElse(null);
 
+        Cookie rtCookie = Arrays.stream(cookies)
+          .filter(cookie -> cookie.getName().equals(StringConstants.RT_COOKIE_NAME))
+          .findFirst()
+          .orElse(null);
+
+        if (rtCookie == null) {
+            httpServletResponse.sendError(401, "REFRESH_TOKEN_NOT_FOUND");
+            return;
+        }
+
         String jwt = null;
         String uid = null;
 

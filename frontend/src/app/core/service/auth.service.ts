@@ -69,6 +69,11 @@ export class AuthService {
   }
 
   public logout(): void {
+    this.http.delete(`${this.authUrl}/logout`, { withCredentials: true }).subscribe();
+    this.temporaryLogout();
+  }
+
+  public temporaryLogout(): void {
     this.authStatusSubject.next(AuthTypes.LOGGED_OUT);
     this.router.navigate(['login']);
   }

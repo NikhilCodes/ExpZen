@@ -98,4 +98,8 @@ public class AuthService {
             return expiredAccessToken;
         }
     }
+
+    public void updateEmail(String email, String uid) {
+        this.authRepository.updateEmail(email, uid);
+    }
 }

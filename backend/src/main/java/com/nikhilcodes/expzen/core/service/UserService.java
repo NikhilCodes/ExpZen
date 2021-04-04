@@ -56,4 +56,8 @@ public class UserService {
           userAuth.get().getEmail()
         );
     }
+
+    public void updateName(String name, String uid) {
+        this.userRepository.updateName(name, uid);
+    }
 }

@@ -6,8 +6,52 @@
   />
 
   <div class="sub-root">
-    <div class="tile-large">
+    <div class="tile-large" style="flex-direction: column; align-items: center">
+      <div style="width: 60%; display: flex; flex-direction: column">
+        <h1 style="font-weight: 600;align-self: flex-start">User Details</h1>
 
+        <mat-form-field appearance="outline">
+          <mat-label>Name</mat-label>
+          <input
+            matInput
+            [formControl]="name"
+            type="text"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="Somebody"
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            [disabled]="true"
+            [value]="email.value"
+            type="email"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="Somebody"
+          />
+        </mat-form-field>
+        <button
+          [disabled]="existingName.value === name.value"
+          class="profile-save-button"
+          mat-stroked-button
+          style="width: min-content; padding: 0 30px; border-color: #5b32cc;"
+          (click)="updateName()"
+        >
+          Save
+        </button>
+      </div>
     </div>
+    <br><br>
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="onLogout()"
+    >
+      Log Out
+    </button>
   </div>
 </div>

@@ -51,7 +51,7 @@ public class AuthController {
             jwtAccessTokenCookie.setMaxAge(NumberConstants.JWT_AT_COOKIE_MAX_AGE);
             jwtAccessTokenCookie.setHttpOnly(true); // Makes it accessible by server only.
             if (serverProfile.equals("prod")) {
-                jwtAccessTokenCookie.setSecure(true); // COMMENT IT OUT DURING LOCAL RUN
+                jwtAccessTokenCookie.setSecure(true);
             }
 
 
@@ -59,7 +59,7 @@ public class AuthController {
             refreshTokenCookie.setMaxAge(NumberConstants.JWT_RT_COOKIE_MAX_AGE);
             refreshTokenCookie.setHttpOnly(true); // Makes it accessible by server only.
             if (serverProfile.equals("prod")) {
-                refreshTokenCookie.setSecure(true); // COMMENT IT OUT DURING LOCAL RUN
+                refreshTokenCookie.setSecure(true);
             }
 
             response.addCookie(jwtAccessTokenCookie);
@@ -143,5 +143,32 @@ public class AuthController {
             jwtAtCookie.setSecure(true);
         }
         response.addCookie(jwtAtCookie);
+    }
+
+    @PostMapping("user/name/update")
+    public void updatePersonalInfo(@RequestBody UserRegBody requestBody, @CookieValue(StringConstants.JWT_AT_COOKIE_NAME) String accessToken) {
+        String uid = this.jwtUtil.extractSubject(accessToken);
+        this.userService.updateName(requestBody.getName(), uid);
+    }
+
+    @DeleteMapping("logout")
+    public void logoutUser(HttpServletRequest request, HttpServletResponse response) {
+        Cookie jwtAccessCookie = new Cookie(StringConstants.JWT_AT_COOKIE_NAME, null);
+        jwtAccessCookie.setMaxAge(0);
+        jwtAccessCookie.setHttpOnly(true);
+        jwtAccessCookie.setPath("/api");
+
+        Cookie refreshCookie = new Cookie(StringConstants.RT_COOKIE_NAME, null);
+        refreshCookie.setMaxAge(0);
+        refreshCookie.setHttpOnly(true);
+        refreshCookie.setPath("/api");
+
+        if (serverProfile.equals("prod")) {
+            jwtAccessCookie.setSecure(true);
+            refreshCookie.setSecure(true);
+        }
+
+        response.addCookie(jwtAccessCookie);
+        response.addCookie(refreshCookie);
     }
 }

@@ -1,0 +1,18 @@
+.profile-save-button {
+  transition-duration: 200ms;
+}
+
+.profile-save-button:hover {
+  background-color: #f5efff;
+}
+
+.profile-save-button:active {
+  background-color: #5b32cc;
+  color: white;
+}
+
+.profile-save-button:disabled {
+  background-color: #eeeeee;
+  border-color: lightgrey!important;
+  color: grey;
+}
