@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EChartsOption, graphic } from 'echarts';
+import { AnalyticsService } from '../../core/service/analytics.service';
 
 @Component({
   selector: 'app-analytics',
@@ -8,12 +9,24 @@ import { EChartsOption, graphic } from 'echarts';
 })
 export class AnalyticsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private analyticsService: AnalyticsService) {
+    this.analyticsService.getMonthlyExpenseStats()
+      .subscribe(value => {
+        const expenseSeries = Array(12).fill(0);
+        value.forEach(monthlyValue => {
+          expenseSeries[monthlyValue.month - 1] = monthlyValue.value;
+        });
+
+        this.chartOption.series[1].data = expenseSeries;
+
+        this.chartOption = { ...this.chartOption }; // To force refresh the plot
+      });
+  }
 
   chartOption: EChartsOption = {
     xAxis: {
       type: 'category',
-      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
     },
     yAxis: {
       type: 'value',
@@ -22,37 +35,34 @@ export class AnalyticsComponent implements OnInit {
       {
         data: [820, 932, 901, 934, 1290, 1330, 1320],
         type: 'line',
-        smooth: true,
         name: 'Income',
         areaStyle: {
           color: new graphic.LinearGradient(0, 0, 0, 1, [{
             offset: 0,
-            color: 'rgb(100,61,171)'
+            color: 'rgb(100,61,171)',
           }, {
             offset: 1,
-            color: 'white'
-          }])
+            color: 'white',
+          }]),
         },
       },
       {
-        data: [920, 232, 501, 634, 1260, 1430, 1620],
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         type: 'line',
-        smooth: true,
         name: 'Expense',
         areaStyle: {
           color: new graphic.LinearGradient(0, 0, 0, 1, [{
             offset: 0,
-            color: 'rgb(121,212,253)'
+            color: 'rgb(121,212,253)',
           }, {
             offset: 1,
-            color: 'white'
-          }])
+            color: 'white',
+          }]),
         },
       },
     ],
   };
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }

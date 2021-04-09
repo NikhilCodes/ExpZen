@@ -2,19 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b7628681-e981-497e-8b45-0da485a9227f" name="Default Changelist" comment="Added Login Bg">
-      <change afterPath="$PROJECT_DIR$/src/app/modules/analytics/analytics.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/modules/analytics/analytics.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/modules/analytics/analytics.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/modules/analytics/analytics.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/controller/AnalyticsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/core/service/AnalyticsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/shared/dto/AnalyticsDto/MonthlyValue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/shared/interface/analytics.interface.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/core/repository/ExpenseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/core/repository/ExpenseRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/sidebar/sidebar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/sidebar/sidebar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/sidebar/sidebar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/sidebar/sidebar.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/analytics/analytics.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/analytics/analytics.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +145,11 @@
       <workItem from="1616933999787" duration="17896000" />
       <workItem from="1617014161673" duration="11000" />
       <workItem from="1617513993088" duration="11478000" />
-      <workItem from="1617543661471" duration="15505000" />
+      <workItem from="1617543661471" duration="16104000" />
+      <workItem from="1617598291469" duration="10000" />
+      <workItem from="1617638368106" duration="712000" />
+      <workItem from="1617647162083" duration="4415000" />
+      <workItem from="1617682566306" duration="19000" />
     </task>
     <task id="LOCAL-00001" summary="Added Login Bg">
       <created>1611894715944</created>

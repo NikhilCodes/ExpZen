@@ -5,18 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae5c335f-8e8d-422c-af69-7c2c9905788f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/modules/analytics/analytics.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/modules/analytics/analytics.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/modules/analytics/analytics.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/app/modules/analytics/analytics.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/controller/AnalyticsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/core/service/AnalyticsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/shared/dto/AnalyticsDto/MonthlyValue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/app/shared/interface/analytics.interface.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/core/repository/ExpenseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/core/repository/ExpenseRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/sidebar/sidebar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/sidebar/sidebar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/sidebar/sidebar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/sidebar/sidebar.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/modules/analytics/analytics.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/modules/analytics/analytics.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,10 +46,12 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -65,19 +64,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="EXPZENSERVER" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="backend" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.nikhilcodes.expzen.ExpZenApplication" />
@@ -112,7 +98,12 @@
       <workItem from="1616525430085" duration="613000" />
       <workItem from="1616933318020" duration="2824000" />
       <workItem from="1617514032090" duration="3407000" />
-      <workItem from="1617543683706" duration="8274000" />
+      <workItem from="1617543683706" duration="8993000" />
+      <workItem from="1617638391549" duration="4435000" />
+      <workItem from="1617647224389" duration="3372000" />
+      <workItem from="1617691191979" duration="616000" />
+      <workItem from="1617894044550" duration="724000" />
+      <workItem from="1617994388953" duration="616000" />
     </task>
     <servers />
   </component>
