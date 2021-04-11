@@ -1,7 +1,5 @@
 # ExpZen
 
-> WIP
-
 ## Tech used:
 - Springboot [Backend]
 - Angular [Frontend]
