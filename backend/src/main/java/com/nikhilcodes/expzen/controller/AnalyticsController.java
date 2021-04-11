@@ -21,8 +21,14 @@ public class AnalyticsController {
     }
 
     @GetMapping("expense/monthly")
-    public List<MonthlyValue> getMonthlyIncomeStats(@CookieValue(StringConstants.JWT_AT_COOKIE_NAME) String accessToken) {
+    public List<MonthlyValue> getMonthlyExpenseStats(@CookieValue(StringConstants.JWT_AT_COOKIE_NAME) String accessToken) {
         String uid = this.jwtUtil.extractSubject(accessToken);
         return this.analyticsService.getMonthlyExpenseStats(uid);
+    }
+
+    @GetMapping("income/monthly")
+    public List<MonthlyValue> getMonthlyIncomeStats(@CookieValue(StringConstants.JWT_AT_COOKIE_NAME) String accessToken) {
+        String uid = this.jwtUtil.extractSubject(accessToken);
+        return this.analyticsService.getMonthlyIncomeStats(uid);
     }
 }

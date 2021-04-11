@@ -28,4 +28,12 @@ public class AnalyticsService {
           .map(numbers -> new MonthlyValue(numbers.get(0), numbers.get(1)))
           .collect(Collectors.toList());
     }
+
+    public List<MonthlyValue> getMonthlyIncomeStats(String uid) {
+        return this.incomeRepository
+          .findIncomePerMonthForCurrentYear(uid)
+          .stream()
+          .map(numbers -> new MonthlyValue(numbers.get(0), numbers.get(1)))
+          .collect(Collectors.toList());
+    }
 }

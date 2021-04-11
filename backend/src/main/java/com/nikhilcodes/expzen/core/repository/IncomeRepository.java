@@ -12,4 +12,7 @@ public interface IncomeRepository extends JpaRepository<Income, String> {
 
     @Query("select sum(value) from Income where userId=:userId")
     Float getTotalIncomeValueByUserId(@Param("userId") String userId);
+
+    @Query(value = "SELECT SUM(value), MONTH(created_on) FROM income WHERE user_id=:userId AND YEAR(current_date())=YEAR(created_on) GROUP BY MONTH(created_on)", nativeQuery = true)
+    List<List<Integer>> findIncomePerMonthForCurrentYear(@Param("userId") String uid);
 }

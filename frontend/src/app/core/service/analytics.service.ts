@@ -19,7 +19,17 @@ export class AnalyticsService {
       { withCredentials: true },
     ).pipe(
       map((res: MonthlyValue[]) => {
-        console.log(res);
+        return res;
+      }),
+    );
+  }
+
+  public getMonthlyIncomeStats(): Observable<MonthlyValue[]> {
+    return this.http.get(
+      `${this.analyticsUrl}/income/monthly`,
+      { withCredentials: true },
+    ).pipe(
+      map((res: MonthlyValue[]) => {
         return res;
       }),
     );

@@ -149,6 +149,7 @@ export class HomeComponent implements AfterViewInit {
     }).subscribe(_ => {
       this.clearForm();
       this.loadAllExpensesForUser();
+      this.refreshBalance();
       this.closeAddExpenseModal();
     });
   }
@@ -174,12 +175,18 @@ export class HomeComponent implements AfterViewInit {
     }).subscribe(_ => {
       this.clearForm();
       this.loadAllFundsForUser();
+      this.refreshBalance();
       this.closeAddFundsModal();
     });
   }
 
   refreshBalance(): void {
-
+    this.miscService.getBalanceMonthlyExpenseAndDue()
+      .subscribe((value: BalanceMonthlyExpenseDue) => {
+        this.balance = value.balance;
+        this.monthlyExpense = value.monthlyExpense;
+        this.due = value.due;
+      });
   }
 
   getNumberAsPrice(num: number): string {

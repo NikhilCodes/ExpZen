@@ -11,7 +11,7 @@ export class AnalyticsComponent implements OnInit {
 
   constructor(private analyticsService: AnalyticsService) {
     this.analyticsService.getMonthlyExpenseStats()
-      .subscribe(value => {
+      .subscribe((value) => {
         const expenseSeries = Array(12).fill(0);
         value.forEach(monthlyValue => {
           expenseSeries[monthlyValue.month - 1] = monthlyValue.value;
@@ -21,12 +21,24 @@ export class AnalyticsComponent implements OnInit {
 
         this.chartOption = { ...this.chartOption }; // To force refresh the plot
       });
+
+    this.analyticsService.getMonthlyIncomeStats()
+      .subscribe((value) => {
+        const incomeSeries = Array(12).fill(0);
+        value.forEach(monthlyValue => {
+          incomeSeries[monthlyValue.month - 1] = monthlyValue.value;
+        });
+
+        this.chartOption.series[0].data = incomeSeries;
+
+        this.chartOption = { ...this.chartOption }; // To force refresh the plot
+      });
   }
 
   chartOption: EChartsOption = {
     xAxis: {
       type: 'category',
-      data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].slice(0, new Date().getMonth() + 2),
     },
     yAxis: {
       type: 'value',

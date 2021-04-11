@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b7628681-e981-497e-8b45-0da485a9227f" name="Default Changelist" comment="Added Login Bg">
-      <change afterPath="$PROJECT_DIR$/../.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/controller/AnalyticsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/core/service/AnalyticsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/shared/dto/AnalyticsDto/MonthlyValue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/shared/interface/analytics.interface.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/core/repository/ExpenseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/core/repository/ExpenseRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/service/analytics.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/service/analytics.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/modules/analytics/analytics.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/analytics/analytics.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/home/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/settings/settings.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/settings/settings.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,6 +147,8 @@
       <workItem from="1617638368106" duration="712000" />
       <workItem from="1617647162083" duration="4415000" />
       <workItem from="1617682566306" duration="19000" />
+      <workItem from="1617995198131" duration="933000" />
+      <workItem from="1618143434141" duration="2293000" />
     </task>
     <task id="LOCAL-00001" summary="Added Login Bg">
       <created>1611894715944</created>
