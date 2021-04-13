@@ -36,9 +36,36 @@ export class AnalyticsComponent implements OnInit {
   }
 
   chartOption: EChartsOption = {
+    title: {
+      left: 'center',
+      text: 'Yearly Analytics',
+    },
+    legend: {
+      top: 'rightTop',
+      data: ['Test'],
+    },
+    tooltip: {
+      triggerOn: 'mousemove|click',
+    },
     xAxis: {
       type: 'category',
-      data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].slice(0, new Date().getMonth() + 2),
+      data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].slice(0, new Date().getMonth() + 1),
+      axisPointer: {
+        snap: true,
+        lineStyle: {
+          color: '#7581BD',
+          width: 2
+        },
+        label: {
+          show: true,
+          backgroundColor: '#7581BD'
+        },
+        handle: {
+          show: true,
+          size: 0,
+          color: '#7581BD'
+        }
+      },
     },
     yAxis: {
       type: 'value',
@@ -47,6 +74,7 @@ export class AnalyticsComponent implements OnInit {
       {
         data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         type: 'line',
+        smooth: true,
         name: 'Income',
         areaStyle: {
           color: new graphic.LinearGradient(0, 0, 0, 1, [{
@@ -61,6 +89,7 @@ export class AnalyticsComponent implements OnInit {
       {
         data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         type: 'line',
+        smooth: true,
         name: 'Expense',
         areaStyle: {
           color: new graphic.LinearGradient(0, 0, 0, 1, [{

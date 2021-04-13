@@ -7,6 +7,15 @@
 
   <div class="sub-root">
     <div class="tile-large" style="flex-direction: column; align-items: center">
+      <div style="width: 100%; display: flex; flex-direction: row; justify-content: center">
+        <div style="display: flex; justify-content: center; align-items: center">
+          <div style="width: 20px; height: 4px; background-color: rgb(100,61,171); margin-right: 10px"></div> Income
+        </div>
+        <div style="width: 50px"></div>
+        <div style="display: flex; justify-content: center; align-items: center">
+          <div style="width: 20px; height: 4px; background-color: rgb(54,255,111); margin-right: 10px"></div> Expense
+        </div>
+      </div>
       <div echarts [options]="chartOption" style="height: 600px; width: 100%;"></div>
     </div>
   </div>
