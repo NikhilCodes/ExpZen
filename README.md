@@ -1,7 +1,7 @@
 # ExpZen
 
 ## Key highlights
- - JWT from scratch
+ - JWT based auth from scratch
  - Repository pattern
  - Sping JPA as ORM
  - Dockerized 100%
