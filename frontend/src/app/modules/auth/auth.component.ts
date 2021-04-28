@@ -73,6 +73,9 @@ export class AuthComponent {
     if (this.password.value.length < this.minimumPasswordLength) {
       this.snackBar.open('Consider using a stronger password!', '', { duration: 2000 });
       return;
+    } else if (!this.email.value.match(/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/)) {
+      this.snackBar.open('Please enter a valid email!', '', { duration: 2000 });
+      return;
     }
     this.authService.registerUserWithNameEmailAndPassword(this.name.value, this.email.value, this.password.value)
       .pipe(
