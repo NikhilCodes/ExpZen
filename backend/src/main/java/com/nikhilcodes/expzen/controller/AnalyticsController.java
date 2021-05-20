@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = {"http://localhost:4200", "https://expzen.netlify.app"}, allowedHeaders = "*", allowCredentials = "true")
+@CrossOrigin(origins = {"http://localhost:4200", "https://expzen.nikhilcodes.in"}, allowedHeaders = "*", allowCredentials = "true")
 @RestController
-@RequestMapping("/stats")
+@RequestMapping("/api/stats")
 public class AnalyticsController {
     private final AnalyticsService analyticsService;
     private final JwtUtil jwtUtil;

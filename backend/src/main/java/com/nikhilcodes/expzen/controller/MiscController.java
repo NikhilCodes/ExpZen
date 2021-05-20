@@ -8,9 +8,9 @@ import com.nikhilcodes.expzen.shared.dto.DashboardCumulativeDTO;
 import com.nikhilcodes.expzen.shared.util.JwtUtil;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = {"http://localhost:4200", "https://expzen.netlify.app"}, allowedHeaders = "*", allowCredentials = "true")
+@CrossOrigin(origins = {"http://localhost:4200", "https://expzen.nikhilcodes.in"}, allowedHeaders = "*", allowCredentials = "true")
 @RestController
-@RequestMapping("/misc")
+@RequestMapping("/api/misc")
 public class MiscController {
     private final MiscService miscService;
     private final JwtUtil jwtUtil;

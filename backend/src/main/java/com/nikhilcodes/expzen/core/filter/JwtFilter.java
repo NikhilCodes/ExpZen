@@ -32,7 +32,7 @@ public class JwtFilter extends OncePerRequestFilter {
       FilterChain filterChain
     ) throws ServletException, IOException {
         Cookie[] cookies = httpServletRequest.getCookies();
-        if(cookies == null) {
+        if (cookies == null) {
             cookies = new Cookie[]{};
         }
         Cookie jwtCookie = Arrays.stream(cookies)
@@ -77,6 +77,6 @@ public class JwtFilter extends OncePerRequestFilter {
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
         String path = request.getRequestURI();
-        return path.equals("/api/auth") || path.equals("/api/auth/");
+        return path.equals("/api/auth") || path.equals("/api/auth/") || !path.startsWith("/api/");
     }
 }

@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = {"http://localhost:4200", "https://expzen.netlify.app"}, allowedHeaders = "*", allowCredentials = "true")
+@CrossOrigin(origins = {"http://localhost:4200", "https://expzen.nikhilcodes.in"}, allowedHeaders = "*", allowCredentials = "true")
 @RestController
-@RequestMapping("/expense")
+@RequestMapping("/api/expense")
 public class ExpenseController {
     private final ExpenseService expenseService;
     private final JwtUtil jwtUtil;

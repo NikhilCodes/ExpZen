@@ -6,12 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin(origins = {"http://localhost:4200", "https://expzen.netlify.app"}, allowedHeaders = "*", allowCredentials = "true")
+@CrossOrigin(origins = {"http://localhost:4200", "https://expzen.nikhilcodes.in"}, allowedHeaders = "*", allowCredentials = "true")
 @RestController
-@RequestMapping("/test")
+@RequestMapping()
 public class ApiController {
-    @GetMapping()
-    ServerTestResponseDTO getServerActivity() {
-        return new ServerTestResponseDTO("Server running gracefully! TEST");
-    }
+
 }

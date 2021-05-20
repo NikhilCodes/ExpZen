@@ -1,7 +1,5 @@
 server:
-  port: 8000
-  servlet:
-    context-path: /api/
+  port: 8002
   error:
     include-message: always
     include-stacktrace: never
@@ -18,7 +16,7 @@ spring:
     baseline-on-migrate: true
 
   datasource:
-    url: jdbc:mysql://mysqldb:3306/expzendb?useSSL=false&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://localhost:3306/expzendb?useSSL=false&allowPublicKeyRetrieval=true
     username: nikhilcodes
     password: testtreasure321
 # -Dspring.profiles.active=dev
