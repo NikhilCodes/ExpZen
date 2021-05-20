@@ -5,8 +5,55 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae5c335f-8e8d-422c-af69-7c2c9905788f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/assets/default-monochrome-black.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/assets/default-monochrome-white.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/assets/default-monochrome.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/assets/isolated-monochrome-black.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/assets/isolated-monochrome-white.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/main.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/polyfills.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/polyfills.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/runtime.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/runtime.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/styles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/styles.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/vendor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/vendor.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/static/assets/auth-bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/static/assets/due-ico.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/static/assets/expense-ico.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/static/assets/income-ico.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/static/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/ExpZenApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/ExpZenApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/controller/AnalyticsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/controller/AnalyticsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/controller/ApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/controller/ApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/controller/DueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/controller/DueController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/controller/ExpenseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/controller/ExpenseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/controller/IncomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/controller/IncomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/controller/MiscController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/controller/MiscController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/core/filter/JwtFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/core/filter/JwtFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/resources/static/3rdpartylicenses.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/resources/static/assets/auth-bg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/assets/auth-bg.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/resources/static/assets/due-ico.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/assets/due-ico.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/resources/static/assets/expense-ico.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/assets/expense-ico.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/resources/static/assets/income-ico.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/assets/income-ico.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/resources/static/assets/money-ico.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/resources/static/auth-bg.37e7e84915c6511ccff1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/auth-bg.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/resources/static/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/resources/static/main.3288e7c8bdc92d0a35ca.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/resources/static/polyfills.2906e0d16b4d947309b6.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/resources/static/runtime.f8acce36d38b4573bc3e.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/resources/static/styles.a4fd5534c25ae58c2a22.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/modules/auth/auth.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/modules/auth/auth.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/environments/environment.prod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/environments/environment.prod.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +72,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JsbtTreeLayoutManager">
+    <layout place="tools.popupGrunt">
+      <scroll-view-position x="0" y="0" />
+    </layout>
+  </component>
   <component name="ProjectId" id="1p3QrYOuzRauDPllN2HBdrRDVzK" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -41,22 +93,42 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/src/main/resources" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.nikhilcodes.expzen" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/backend/src/main/resources/db" />
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/backend/src/main/resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend/src/main/resources" />
+      <recent name="$PROJECT_DIR$/backend/src/main/resources/resources" />
+      <recent name="$PROJECT_DIR$/backend/src/main/resources/db" />
       <recent name="$PROJECT_DIR$/backend" />
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="EXPZENSERVER" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="backend" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.nikhilcodes.expzen.ExpZenApplication" />
@@ -101,6 +173,13 @@
       <workItem from="1618149943554" duration="1793000" />
       <workItem from="1618326664616" duration="748000" />
       <workItem from="1619626932904" duration="382000" />
+      <workItem from="1619627697769" duration="194000" />
+      <workItem from="1620488302862" duration="112000" />
+      <workItem from="1621150348166" duration="3024000" />
+      <workItem from="1621260890336" duration="382000" />
+      <workItem from="1621361384360" duration="4404000" />
+      <workItem from="1621444497956" duration="3349000" />
+      <workItem from="1621522909013" duration="6091000" />
     </task>
     <servers />
   </component>
