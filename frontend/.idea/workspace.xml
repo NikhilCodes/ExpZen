@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b7628681-e981-497e-8b45-0da485a9227f" name="Default Changelist" comment="Added Login Bg">
-      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/controller/ApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/nikhilcodes/expzen/controller/ApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/resources/application-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/resources/resources/static/3rdpartylicenses.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/resources/resources/static/assets/money-ico.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/resources/resources/static/auth-bg.37e7e84915c6511ccff1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/resources/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/resources/resources/static/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/resources/resources/static/main.3288e7c8bdc92d0a35ca.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/resources/resources/static/polyfills.2906e0d16b4d947309b6.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/resources/resources/static/runtime.f8acce36d38b4573bc3e.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/resources/resources/static/styles.a4fd5534c25ae58c2a22.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/resources/static/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/environments/environment.prod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/environments/environment.prod.ts" afterDir="false" />
     </list>
@@ -50,6 +39,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="NEW_TOOLWINDOW_STRIPE_DEFAULTS" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -171,6 +161,8 @@
       <workItem from="1621362014089" duration="205000" />
       <workItem from="1621366702015" duration="1103000" />
       <workItem from="1621399874724" duration="11000" />
+      <workItem from="1621535865479" duration="91000" />
+      <workItem from="1621573391629" duration="4000" />
     </task>
     <task id="LOCAL-00001" summary="Added Login Bg">
       <created>1611894715944</created>

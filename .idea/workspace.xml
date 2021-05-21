@@ -5,53 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae5c335f-8e8d-422c-af69-7c2c9905788f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/assets/default-monochrome-black.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/assets/default-monochrome-white.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/assets/default-monochrome.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/assets/isolated-monochrome-black.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/assets/isolated-monochrome-white.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/main.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/polyfills.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/polyfills.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/runtime.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/runtime.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/styles.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/styles.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/vendor.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/vendor.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/static/assets/auth-bg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/static/assets/due-ico.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/static/assets/expense-ico.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/static/assets/income-ico.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/static/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/static/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/ExpZenApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/ExpZenApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/controller/AnalyticsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/controller/AnalyticsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/controller/ApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/controller/ApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/controller/DueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/controller/DueController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/controller/ExpenseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/controller/ExpenseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/controller/IncomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/controller/IncomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/controller/MiscController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/controller/MiscController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/core/filter/JwtFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/nikhilcodes/expzen/core/filter/JwtFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/resources/static/3rdpartylicenses.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/resources/static/assets/auth-bg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/assets/auth-bg.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/resources/static/assets/due-ico.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/assets/due-ico.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/resources/static/assets/expense-ico.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/assets/expense-ico.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/resources/static/assets/income-ico.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/assets/income-ico.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/resources/static/assets/money-ico.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/resources/static/auth-bg.37e7e84915c6511ccff1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/auth-bg.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/resources/static/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/resources/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/resources/static/main.3288e7c8bdc92d0a35ca.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/resources/static/polyfills.2906e0d16b4d947309b6.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/resources/static/runtime.f8acce36d38b4573bc3e.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/resources/static/styles.a4fd5534c25ae58c2a22.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/static/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/environments/environment.prod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/environments/environment.prod.ts" afterDir="false" />
     </list>
@@ -118,17 +73,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="EXPZENSERVER" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="backend" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.nikhilcodes.expzen.ExpZenApplication" />
@@ -179,7 +123,11 @@
       <workItem from="1621260890336" duration="382000" />
       <workItem from="1621361384360" duration="4404000" />
       <workItem from="1621444497956" duration="3349000" />
-      <workItem from="1621522909013" duration="6091000" />
+      <workItem from="1621522909013" duration="7529000" />
+      <workItem from="1621533459309" duration="848000" />
+      <workItem from="1621576142092" duration="1000" />
+      <workItem from="1621597027164" duration="616000" />
+      <workItem from="1621601028004" duration="2000" />
     </task>
     <servers />
   </component>
