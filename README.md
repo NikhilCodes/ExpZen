@@ -1,5 +1,7 @@
 # ExpZen
 
+https://expzen.nikhilcodes.in
+
 ## Key highlights
  - JWT based auth from scratch
  - Repository pattern
