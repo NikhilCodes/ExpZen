@@ -1,6 +1,7 @@
 package com.nikhilcodes.expzen.configuration;
 
 import com.nikhilcodes.expzen.core.filter.JwtFilter;
+import com.nikhilcodes.expzen.core.filter.LogFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -13,10 +14,12 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     final private JwtFilter jwtFilter;
+    final private LogFilter logFilter;
 
     @Autowired
-    public SecurityConfiguration(JwtFilter jwtFilter) {
+    public SecurityConfiguration(JwtFilter jwtFilter, LogFilter logFilter) {
         this.jwtFilter = jwtFilter;
+        this.logFilter = logFilter;
     }
 
     @Override
@@ -31,5 +34,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
           .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
         http.addFilterBefore(this.jwtFilter, UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(this.logFilter, JwtFilter.class);
     }
 }
