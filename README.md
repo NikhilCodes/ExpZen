@@ -5,7 +5,7 @@ https://expzen.nikhilcodes.in
 ## Key highlights
  - JWT based auth from scratch
  - Repository pattern
- - Sping JPA as ORM
+ - Spring JPA as ORM
  - Dockerized 100%
 
 
