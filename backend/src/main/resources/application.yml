@@ -16,7 +16,7 @@ spring:
     baseline-on-migrate: true
 
   datasource:
-    url: jdbc:mysql://localhost:3306/expzendb?useSSL=false&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://mysqldb:3306/expzendb?useSSL=false&allowPublicKeyRetrieval=true
     username: nikhilcodes
     password: testtreasure321
 # -Dspring.profiles.active=dev
